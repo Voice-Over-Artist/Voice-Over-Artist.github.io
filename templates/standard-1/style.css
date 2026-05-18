@@ -25,6 +25,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 16px);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -157,6 +158,12 @@ a:hover {
   letter-spacing: 0.02em;
 }
 
+.logo:focus-visible {
+  outline: 2px solid rgba(201, 107, 94, 0.75);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+
 .logo:hover {
   color: var(--terracotta);
 }
@@ -232,6 +239,24 @@ a:hover {
 .nav-list a:hover {
   background: var(--sand);
   color: var(--brown);
+}
+
+.nav-list a:focus-visible {
+  outline: 2px solid rgba(201, 107, 94, 0.75);
+  outline-offset: 3px;
+}
+
+.nav-list a.nav-cta {
+  margin-top: 0.35rem;
+  background: var(--terracotta);
+  color: var(--white);
+  border: 1px solid rgba(201, 107, 94, 0.55);
+  text-align: center;
+}
+
+.nav-list a.nav-cta:hover {
+  background: #b85a4e;
+  color: var(--white);
 }
 
 .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1) {
@@ -851,6 +876,11 @@ a:hover {
   .nav-list a {
     padding: 0.5rem 0.95rem;
     font-size: 0.95rem;
+  }
+
+  .nav-list a.nav-cta {
+    margin-top: 0;
+    padding: 0.55rem 1rem;
   }
 
   .hero-grid {

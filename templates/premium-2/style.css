@@ -31,6 +31,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 16px);
 }
 
 body {
@@ -167,6 +168,12 @@ h3 {
   color: var(--coral);
 }
 
+.logo:focus-visible {
+  outline: 2px solid rgba(224, 112, 96, 0.8);
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+
 .primary-nav {
   display: none;
 }
@@ -174,17 +181,26 @@ h3 {
 @media (min-width: 1024px) {
   .primary-nav {
     display: block;
+    flex: 1;
+    min-width: 0;
   }
 }
 
 .nav-list {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem 1rem;
+  flex-wrap: nowrap;
+  gap: 0.25rem 0.9rem;
   list-style: none;
   margin: 0;
   padding: 0;
   justify-content: flex-end;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.nav-list::-webkit-scrollbar {
+  display: none;
 }
 
 .nav-list a {
@@ -200,6 +216,22 @@ h3 {
 .nav-list a:hover {
   color: var(--rose-dark);
   background: rgba(252, 228, 224, 0.65);
+}
+
+.nav-list a:focus-visible {
+  outline: 2px solid rgba(224, 112, 96, 0.8);
+  outline-offset: 3px;
+}
+
+.nav-list a.nav-cta {
+  background: linear-gradient(135deg, var(--coral), var(--coral-deep));
+  color: #fff;
+  padding: 0.5rem 0.85rem;
+}
+
+.nav-list a.nav-cta:hover {
+  background: linear-gradient(135deg, var(--coral-deep), var(--rose-dark));
+  color: #fff;
 }
 
 .nav-toggle {

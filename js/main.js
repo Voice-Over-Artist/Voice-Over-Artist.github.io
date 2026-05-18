@@ -258,15 +258,30 @@
     var hamburger = document.getElementById('hamburger');
     var navLinks = document.getElementById('navLinks');
     if (hamburger && navLinks) {
+        function setNavOpen(open) {
+            hamburger.classList.toggle('active', open);
+            navLinks.classList.toggle('open', open);
+            hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+            hamburger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            document.body.classList.toggle('nav-open', open);
+        }
+
         hamburger.addEventListener('click', function () {
-            hamburger.classList.toggle('active');
-            navLinks.classList.toggle('open');
+            setNavOpen(!navLinks.classList.contains('open'));
         });
+
         navLinks.querySelectorAll('a').forEach(function (link) {
             link.addEventListener('click', function () {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('open');
+                setNavOpen(false);
             });
+        });
+
+        navLinks.addEventListener('click', function (event) {
+            if (event.target === navLinks) setNavOpen(false);
+        });
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') setNavOpen(false);
         });
     }
 

@@ -49,6 +49,7 @@ body {
 [dir="rtl"] body { font-family: var(--font-ar); }
 [dir="rtl"] .section-title,
 [dir="rtl"] .hero-title { font-family: var(--font-ar); }
+body.nav-open { overflow: hidden; }
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 
@@ -155,6 +156,11 @@ ul { list-style: none; }
     transition: color var(--transition);
 }
 .nav-links a:hover { color: var(--accent); }
+.nav-links a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: 10px;
+}
 .nav-cta {
     background: var(--accent) !important;
     color: var(--white) !important;
@@ -182,6 +188,10 @@ ul { list-style: none; }
 }
 .lang-toggle:hover { border-color: var(--accent); color: var(--accent); }
 .lang-toggle i { font-size: .85rem; }
+.lang-toggle:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
 
 .hamburger {
     display: none;
@@ -199,6 +209,11 @@ ul { list-style: none; }
     background: var(--text);
     border-radius: 2px;
     transition: all var(--transition);
+}
+.hamburger:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: 10px;
 }
 .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
 .hamburger.active span:nth-child(2) { opacity: 0; }

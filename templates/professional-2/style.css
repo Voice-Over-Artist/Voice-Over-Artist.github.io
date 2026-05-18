@@ -35,6 +35,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 16px);
 }
 
 body {
@@ -165,6 +166,12 @@ a:hover {
   text-decoration: none;
 }
 
+.logo:focus-visible {
+  outline: 2px solid rgba(139, 106, 174, 0.85);
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+
 .logo:hover {
   color: var(--soft-violet);
 }
@@ -211,6 +218,23 @@ a:hover {
 .nav-list a:hover {
   background: rgba(139, 106, 174, 0.12);
   color: var(--deep-purple);
+}
+
+.nav-list a:focus-visible {
+  outline: 2px solid rgba(139, 106, 174, 0.85);
+  outline-offset: 3px;
+}
+
+.nav-list a.nav-cta {
+  margin-top: 0.35rem;
+  background: var(--gradient-btn);
+  color: var(--white);
+  text-align: center;
+}
+
+.nav-list a.nav-cta:hover {
+  background: var(--gradient-accent);
+  color: var(--white);
 }
 
 .nav-toggle {
@@ -269,6 +293,11 @@ a:hover {
     padding: 0.45rem 0.85rem;
     font-size: 0.88rem;
     letter-spacing: 0.02em;
+  }
+
+  .nav-list a.nav-cta {
+    margin-top: 0;
+    padding: 0.5rem 1rem;
   }
 
   .nav-toggle {

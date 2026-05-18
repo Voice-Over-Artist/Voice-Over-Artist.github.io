@@ -26,6 +26,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 16px);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -114,6 +115,12 @@ a:hover {
   color: var(--sky);
 }
 
+.logo:focus-visible {
+  outline: 2px solid rgba(74, 144, 217, 0.75);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+
 .nav-toggle {
   width: 44px;
   height: 44px;
@@ -127,6 +134,11 @@ a:hover {
   justify-content: center;
   gap: 6px;
   padding: 0;
+}
+
+.nav-toggle:focus-visible {
+  outline: 2px solid rgba(74, 144, 217, 0.75);
+  outline-offset: 3px;
 }
 
 .nav-toggle-bar {
@@ -178,6 +190,25 @@ a:hover {
   background: var(--mist);
   border-color: rgba(74, 144, 217, 0.22);
   color: var(--sky);
+}
+
+.nav-list a:focus-visible {
+  outline: 2px solid rgba(74, 144, 217, 0.75);
+  outline-offset: 3px;
+}
+
+.nav-list a.nav-cta {
+  margin-top: 0.35rem;
+  background: linear-gradient(135deg, var(--sky), #3b7fc9);
+  color: #fff;
+  border-color: rgba(74, 144, 217, 0.55);
+  text-align: center;
+}
+
+.nav-list a.nav-cta:hover {
+  color: #fff;
+  background: linear-gradient(135deg, #3b7fc9, var(--navy));
+  border-color: rgba(74, 144, 217, 0.75);
 }
 
 /* ---------- Buttons ---------- */
@@ -780,6 +811,11 @@ a:hover {
   .nav-list a {
     padding: 0.55rem 0.95rem;
     font-size: 0.93rem;
+  }
+
+  .nav-list a.nav-cta {
+    margin-top: 0;
+    padding: 0.55rem 1rem;
   }
 
   .hero-layout {
