@@ -33,6 +33,8 @@
     </div>
   </header>
 
+  <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
+
   <main>
     <section id="hero" class="hero">
       <div class="hero-gradient" aria-hidden="true"></div>
@@ -299,12 +301,14 @@
       var header = document.getElementById('site-header');
       var toggle = document.querySelector('.nav-toggle');
       var nav = document.getElementById('primary-nav');
+      var overlay = document.getElementById('navOverlay');
       if (toggle && nav) {
         function setNavOpen(open) {
           nav.classList.toggle('is-open', open);
           toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
           toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
           document.body.classList.toggle('nav-open', open);
+          if (overlay) overlay.classList.toggle('active', open);
         }
 
         toggle.addEventListener('click', function () {
@@ -317,14 +321,14 @@
           });
         });
 
+        if (overlay) {
+          overlay.addEventListener('click', function () {
+            setNavOpen(false);
+          });
+        }
+
         document.addEventListener('keydown', function (event) {
           if (event.key === 'Escape') setNavOpen(false);
-        });
-
-        document.addEventListener('click', function (event) {
-          if (!nav.classList.contains('is-open')) return;
-          if (event.target.closest('#primary-nav, .nav-toggle')) return;
-          setNavOpen(false);
         });
       }
 

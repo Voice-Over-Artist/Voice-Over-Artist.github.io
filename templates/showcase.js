@@ -229,6 +229,7 @@
 
     var hamburger = document.getElementById('hamburger');
     var navLinks = document.getElementById('navLinks');
+    var navOverlay = document.getElementById('navOverlay');
     if (hamburger && navLinks) {
         function setNavOpen(open) {
             navLinks.classList.toggle('open', open);
@@ -236,6 +237,7 @@
             hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
             hamburger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
             document.body.classList.toggle('nav-open', open);
+            if (navOverlay) navOverlay.classList.toggle('active', open);
         }
 
         hamburger.addEventListener('click', function () {
@@ -247,12 +249,11 @@
             });
         });
 
-        document.addEventListener('click', function (event) {
-            if (!navLinks.classList.contains('open')) return;
-            var target = event.target;
-            if (target && target.closest && target.closest('#navLinks, #hamburger, #langToggle')) return;
-            setNavOpen(false);
-        });
+        if (navOverlay) {
+            navOverlay.addEventListener('click', function () {
+                setNavOpen(false);
+            });
+        }
 
         document.addEventListener('keydown', function (event) {
             if (event.key === 'Escape') setNavOpen(false);
