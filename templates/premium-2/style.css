@@ -49,6 +49,22 @@ body.nav-open {
   overflow: hidden;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(44, 44, 52, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  z-index: 30;
+}
+
+body.nav-open::before {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 img {
   max-width: 100%;
   height: auto;
@@ -175,11 +191,39 @@ h3 {
 }
 
 .primary-nav {
-  display: none;
+  position: fixed;
+  inset: var(--header-h) 0 0 auto;
+  width: min(360px, 88vw);
+  padding: 1rem 1.25rem 1.5rem;
+  background: rgba(255, 248, 246, 0.97);
+  backdrop-filter: blur(10px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  border-left: 1px solid var(--line);
+  box-shadow: var(--shadow-hover);
+  transform: translateX(110%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 35;
+  transition: transform 0.32s ease, opacity 0.25s ease, visibility 0.32s;
 }
 
 @media (min-width: 1024px) {
   .primary-nav {
+    position: static;
+    inset: auto;
+    width: auto;
+    padding: 0;
+    background: transparent;
+    backdrop-filter: none;
+    border-left: none;
+    box-shadow: none;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    z-index: auto;
     display: block;
     flex: 1;
     min-width: 0;
@@ -265,13 +309,10 @@ h3 {
 }
 
 .primary-nav.is-open {
-  display: block;
-  position: fixed;
-  inset: var(--header-h) 0 0;
-  padding: 1.25rem 1.25rem 2rem;
-  background: rgba(255, 248, 246, 0.97);
-  backdrop-filter: blur(10px);
-  overflow-y: auto;
+  transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .primary-nav.is-open .nav-list {

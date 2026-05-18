@@ -57,6 +57,22 @@ body.nav-open {
   overflow: hidden;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(44, 44, 52, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  z-index: 30;
+}
+
+body.nav-open::before {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 img {
   max-width: 100%;
   height: auto;
@@ -150,20 +166,29 @@ a:hover {
 
 .primary-nav {
   position: fixed;
-  inset: var(--header-h) 0 0 0;
+  inset: var(--header-h) 0 0 auto;
+  width: min(360px, 88vw);
   background: rgba(247, 249, 252, 0.98);
   backdrop-filter: blur(10px);
-  padding: 1.25rem 1.75rem 2rem;
-  transform: translateY(-100%);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  padding: 1rem 1.25rem 1.5rem;
+  border-left: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+  transform: translateX(110%);
   visibility: hidden;
   opacity: 0;
+  pointer-events: none;
+  z-index: 35;
   transition: transform 0.28s ease, opacity 0.28s ease, visibility 0.28s ease;
 }
 
 .primary-nav.is-open {
-  transform: translateY(0);
+  transform: translateX(0);
   visibility: visible;
   opacity: 1;
+  pointer-events: auto;
 }
 
 .nav-list {
@@ -793,12 +818,16 @@ a:hover {
   .primary-nav {
     position: static;
     inset: auto;
+    width: auto;
     padding: 0;
     transform: none;
     visibility: visible;
     opacity: 1;
     background: transparent;
     backdrop-filter: none;
+    border-left: none;
+    box-shadow: none;
+    pointer-events: auto;
     transition: none;
   }
 

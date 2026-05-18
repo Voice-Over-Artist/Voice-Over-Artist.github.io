@@ -276,8 +276,11 @@
             });
         });
 
-        navLinks.addEventListener('click', function (event) {
-            if (event.target === navLinks) setNavOpen(false);
+        document.addEventListener('click', function (event) {
+            if (!navLinks.classList.contains('open')) return;
+            var target = event.target;
+            if (target && target.closest && target.closest('#navLinks, #hamburger, #langToggle')) return;
+            setNavOpen(false);
         });
 
         document.addEventListener('keydown', function (event) {
