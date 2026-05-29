@@ -32,6 +32,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--header-h) + 16px);
+  overflow-x: hidden;
 }
 
 body {
@@ -192,7 +193,7 @@ h3 {
 .primary-nav {
   position: fixed;
   top: 0;
-  right: -100%;
+  right: 0;
   width: 280px;
   height: 100vh;
   height: 100dvh;
@@ -207,7 +208,8 @@ h3 {
   visibility: hidden;
   pointer-events: none;
   z-index: 35;
-  transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease, visibility 0.4s;
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease, visibility 0.4s;
 }
 
 @media (min-width: 1024px) {
@@ -313,7 +315,7 @@ h3 {
 }
 
 .primary-nav.is-open {
-  right: 0;
+  transform: translateX(0);
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
