@@ -96,6 +96,12 @@
         addon_domain_title: { en: 'Custom Domain', ar: 'دومين خاص' },
         addon_domain_desc: { en: 'Use yourname.github.io or yourname.com. Ask for details and fees.', ar: 'استخدم yourname.github.io أو yourname.com. اسأل عن التفاصيل والرسوم.' },
         addon_domain_price: { en: 'Based on domain cost', ar: 'حسب تكلفة الدومين' },
+        addon_ai_photos_title: { en: 'Professional AI Photos', ar: 'صور احترافية بالذكاء الاصطناعي' },
+        addon_ai_photos_desc: { en: 'Get studio-quality AI-generated professional photos for your portfolio.', ar: 'احصل على صور احترافية بجودة الاستوديو بالذكاء الاصطناعي لبورتفوليوك.' },
+        addon_ai_photos_price: { en: '<bdi dir="ltr">+200</bdi> EGP', ar: '<bdi dir="ltr">+200</bdi> جنيه' },
+        addon_contact_form_title: { en: 'Contact Form', ar: 'نموذج تواصل' },
+        addon_contact_form_desc: { en: 'Add a professional contact form to your portfolio for direct inquiries.', ar: 'أضف نموذج تواصل احترافي لبورتفوليوك لاستقبال الاستفسارات مباشرة.' },
+        addon_contact_form_price: { en: '<bdi dir="ltr">+200</bdi> EGP', ar: '<bdi dir="ltr">+200</bdi> جنيه' },
 
         cta_title: { en: 'Want Something Fully Custom?', ar: 'تريد موقعاً مخصصاً بالكامل؟' },
         cta_desc: { en: 'Our custom-built packages start at 3,000 EGP with unlimited design possibilities.', ar: 'الباقات المخصصة تبدأ من 3,000 جنيه مع حرية تصميم كاملة.' },
@@ -125,6 +131,12 @@
         },
         faq_q7: { en: 'Do templates support Arabic?', ar: 'هل القوالب تدعم اللغة العربية؟' },
         faq_a7: { en: 'English only for now. If you need Arabic, ask for details.', ar: 'إنجليزي فقط حالياً. إذا تحتاج عربي اسأل عن التفاصيل.' },
+
+        promo_text: { en: 'Limited-time offer — Save up to 30%!', ar: 'عرض لفترة محدودة — وفّر حتى 30%!' },
+        timer_days: { en: 'Days', ar: 'يوم' },
+        timer_hours: { en: 'Hrs', ar: 'ساعة' },
+        timer_mins: { en: 'Min', ar: 'دقيقة' },
+        timer_secs: { en: 'Sec', ar: 'ثانية' },
 
         footer_credit: { en: 'Malek Abdelrahman. Engineered with precision.', ar: 'مالك عبد الرحمن. صُمم بدقة.' }
     };
@@ -317,6 +329,50 @@
             }
         });
     });
+
+    /* Countdown timer — 7 days from first visit */
+    (function () {
+        var STORAGE_KEY = 'voPromoEnd';
+        var endTime;
+        try {
+            var stored = window.localStorage ? window.localStorage.getItem(STORAGE_KEY) : null;
+            if (stored) {
+                endTime = parseInt(stored, 10);
+            } else {
+                endTime = Date.now() + 7 * 24 * 60 * 60 * 1000;
+                if (window.localStorage) window.localStorage.setItem(STORAGE_KEY, String(endTime));
+            }
+        } catch (e) {
+            endTime = Date.now() + 7 * 24 * 60 * 60 * 1000;
+        }
+
+        var daysEl = document.getElementById('timerDays');
+        var hoursEl = document.getElementById('timerHours');
+        var minsEl = document.getElementById('timerMins');
+        var secsEl = document.getElementById('timerSecs');
+        var banner = document.getElementById('promoBanner');
+
+        function pad(n) { return n < 10 ? '0' + n : String(n); }
+
+        function tick() {
+            var diff = Math.max(0, endTime - Date.now());
+            if (diff <= 0 && banner) {
+                banner.style.display = 'none';
+                return;
+            }
+            var s = Math.floor(diff / 1000);
+            var d = Math.floor(s / 86400); s %= 86400;
+            var h = Math.floor(s / 3600); s %= 3600;
+            var m = Math.floor(s / 60); s %= 60;
+            if (daysEl) daysEl.textContent = pad(d);
+            if (hoursEl) hoursEl.textContent = pad(h);
+            if (minsEl) minsEl.textContent = pad(m);
+            if (secsEl) secsEl.textContent = pad(s);
+        }
+
+        tick();
+        setInterval(tick, 1000);
+    })();
 
     /* Init language */
     applyLanguage(currentLang);

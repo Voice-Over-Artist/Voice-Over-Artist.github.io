@@ -37,7 +37,76 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 16px); }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 60px); }
+
+/* ---------- Promo Banner ---------- */
+.promo-banner {
+    background: linear-gradient(135deg, #c96b5e 0%, #b55d51 50%, #a04e43 100%);
+    color: #fff;
+    padding: 10px 0;
+    position: relative;
+    z-index: 1001;
+}
+.promo-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+.promo-text {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    font-size: .92rem;
+    letter-spacing: .02em;
+}
+.promo-text i {
+    font-size: 1.1rem;
+    animation: fire-pulse 1.5s ease-in-out infinite;
+}
+@keyframes fire-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: .8; }
+}
+.promo-timer {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.timer-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 42px;
+}
+.timer-num {
+    background: rgba(255,255,255,.2);
+    backdrop-filter: blur(4px);
+    border-radius: 8px;
+    padding: 4px 8px;
+    font-size: 1.15rem;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    min-width: 38px;
+    text-align: center;
+    line-height: 1.3;
+}
+.timer-label {
+    font-size: .62rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    margin-top: 2px;
+    opacity: .85;
+}
+.timer-sep {
+    font-weight: 800;
+    font-size: 1.1rem;
+    margin-bottom: 14px;
+    opacity: .7;
+}
 body {
     font-family: var(--font-body);
     color: var(--text);
@@ -357,10 +426,18 @@ ul { list-style: none; }
     gap: 6px;
     margin-top: 20px;
 }
+.tier-amount-old {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--text-light);
+    line-height: 1;
+    text-decoration: line-through;
+    opacity: .65;
+}
 .tier-amount {
     font-size: 2.6rem;
     font-weight: 800;
-    color: var(--text);
+    color: var(--accent);
     line-height: 1;
 }
 .tier-currency {
@@ -443,103 +520,18 @@ ul { list-style: none; }
     position: relative;
     height: 280px;
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
+    background: var(--sand);
 }
-.preview-terracotta { background: linear-gradient(135deg, #faf6f0 0%, #e8ddd0 50%, #d4bfb0 100%); }
-.preview-ocean { background: linear-gradient(135deg, #e8f0fa 0%, #c4d9f2 50%, #a0c4e8 100%); }
-.preview-forest { background: linear-gradient(135deg, #e8f0e6 0%, #c4dcc0 50%, #9ec4a0 100%); }
-.preview-purple { background: linear-gradient(135deg, #ede5f7 0%, #d4c4e8 50%, #b8a0d4 100%); }
-.preview-gold { background: linear-gradient(135deg, #f5e6c8 0%, #e8d4a0 50%, #d4be7a 100%); }
-.preview-coral { background: linear-gradient(135deg, #fce4e0 0%, #f0c4be 50%, #e0a098 100%); }
-
-.preview-browser {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 16px;
-    background: rgba(255,255,255,.85);
-    backdrop-filter: blur(8px);
+.preview-screenshot {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 6s ease;
 }
-.browser-dots { display: flex; gap: 5px; }
-.browser-dots span { width: 8px; height: 8px; border-radius: 50%; }
-.browser-dots span:nth-child(1) { background: #ff5f57; }
-.browser-dots span:nth-child(2) { background: #ffbd2e; }
-.browser-dots span:nth-child(3) { background: #28c840; }
-.browser-url {
-    font-size: .72rem;
-    color: var(--text-light);
-    font-family: 'DM Sans', monospace;
-    margin-left: 8px;
-    direction: ltr;
-    unicode-bidi: plaintext;
+.template-card:hover .preview-screenshot {
+    transform: translateY(-20%);
 }
-[dir="rtl"] .browser-url { margin-left: 0; margin-right: 8px; }
-
-/* Preview mockup shapes */
-.preview-mockup {
-    flex: 1;
-    padding: 16px 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-}
-.mock-nav { padding-bottom: 8px; }
-.mock-bar {
-    border-radius: 4px;
-    height: 6px;
-}
-.w60 { width: 60%; }
-.w70 { width: 70%; }
-.w50 { width: 50%; }
-.h16 { height: 16px; }
-.h8 { height: 8px; }
-.mock-hero-area {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-.mock-btn {
-    width: 80px;
-    height: 24px;
-    border-radius: 6px;
-    margin-top: 4px;
-}
-.mock-cards {
-    display: flex;
-    gap: 8px;
-    margin-top: auto;
-}
-.mock-card {
-    flex: 1;
-    height: 50px;
-    border-radius: 8px;
-}
-
-/* Mockup color themes */
-.mockup-terracotta .mock-bar { background: rgba(201, 107, 94, .35); }
-.mockup-terracotta .mock-btn { background: rgba(201, 107, 94, .6); }
-.mockup-terracotta .mock-card { background: rgba(255, 255, 255, .45); }
-
-.mockup-ocean .mock-bar { background: rgba(26, 58, 92, .3); }
-.mockup-ocean .mock-btn { background: rgba(74, 144, 217, .6); }
-.mockup-ocean .mock-card { background: rgba(255, 255, 255, .45); }
-
-.mockup-forest .mock-bar { background: rgba(45, 90, 61, .3); }
-.mockup-forest .mock-btn { background: rgba(123, 166, 138, .6); }
-.mockup-forest .mock-card { background: rgba(255, 255, 255, .45); }
-
-.mockup-purple .mock-bar { background: rgba(74, 45, 107, .3); }
-.mockup-purple .mock-btn { background: rgba(139, 106, 174, .6); }
-.mockup-purple .mock-card { background: rgba(255, 255, 255, .45); }
-
-.mockup-gold .mock-bar { background: rgba(184, 134, 11, .3); }
-.mockup-gold .mock-btn { background: rgba(184, 134, 11, .6); }
-.mockup-gold .mock-card { background: rgba(255, 255, 255, .45); }
-
-.mockup-coral .mock-bar { background: rgba(224, 112, 96, .35); }
-.mockup-coral .mock-btn { background: rgba(224, 112, 96, .6); }
-.mockup-coral .mock-card { background: rgba(255, 255, 255, .45); }
 
 /* Template body */
 .template-body { padding: 24px 28px 28px; }
@@ -864,7 +856,7 @@ ul { list-style: none; }
     .hamburger { display: flex; }
 
     .steps-grid { grid-template-columns: 1fr; gap: 16px; }
-    .template-preview { height: 220px; }
+    .template-preview { height: 200px; }
 }
 
 @media (min-width: 768px) {
