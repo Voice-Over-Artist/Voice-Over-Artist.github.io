@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Template Colors — VO Portfolio Templates</title>
+  <meta name="description" content="Choose a template, then pick from 12 color themes for your voice-over portfolio.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎨</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      color: #2c2c34;
+      background: #faf8f5;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { width: min(100% - 2rem, 1140px); margin-inline: auto; }
+
+    /* Header */
+    .page-header {
+      text-align: center;
+      padding: clamp(3rem, 8vw, 5rem) 0 clamp(2rem, 5vw, 3rem);
+    }
+
+    .page-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 16px;
+      border-radius: 50px;
+      background: rgba(201, 107, 94, 0.1);
+      color: #c96b5e;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      margin-bottom: 1rem;
+    }
+
+    .page-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: #2c2c34;
+      margin-bottom: 0.75rem;
+    }
+
+    .page-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
+      color: #8a8a96;
+      max-width: 560px;
+      margin-inline: auto;
+    }
+
+    /* Step Sections */
+    .step-section {
+      padding-bottom: clamp(2rem, 5vw, 3.5rem);
+    }
+
+    .step-header {
+      text-align: center;
+      margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+    }
+
+    .step-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+    }
+
+    .step-desc {
+      font-size: 0.95rem;
+      color: #8a8a96;
+    }
+
+    /* Template Grid */
+    .template-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-bottom: clamp(2rem, 5vw, 3rem);
+    }
+
+    @media (max-width: 768px) {
+      .template-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .template-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .template-card {
+      background: #fff;
+      border-radius: 16px;
+      border: 2px solid rgba(0,0,0,0.06);
+      padding: 1.25rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+
+    .template-card:hover {
+      border-color: rgba(201, 107, 94, 0.25);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+      transform: translateY(-3px);
+    }
+
+    .template-card.selected {
+      border-color: #c96b5e;
+      box-shadow: 0 8px 30px rgba(201, 107, 94, 0.18);
+    }
+
+    .template-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(201, 107, 94, 0.1);
+      color: #c96b5e;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .template-name {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .template-desc {
+      font-size: 0.9rem;
+      color: #8a8a96;
+      margin-bottom: 1rem;
+    }
+
+    .template-preview {
+      height: 150px;
+      border-radius: 12px;
+      background: #f7f3ee;
+      border: 1px solid rgba(0,0,0,0.06);
+      overflow: hidden;
+    }
+
+    .template-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+
+    /* Theme Grid */
+    .theme-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+      gap: 1.25rem;
+    }
+
+    /* Theme Card */
+    .theme-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 2px solid rgba(0,0,0,0.06);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .theme-card:hover {
+      border-color: rgba(201, 107, 94, 0.25);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+      transform: translateY(-3px);
+    }
+
+    .theme-card.selected {
+      border-color: #c96b5e;
+      box-shadow: 0 8px 32px rgba(201, 107, 94, 0.18);
+    }
+
+    .theme-card.selected::after {
+      content: '✓';
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #c96b5e;
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      z-index: 2;
+    }
+
+    /* Mini Preview */
+    .preview {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .preview-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px;
+    }
+
+    .preview-logo {
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.03em;
+    }
+
+    .preview-nav {
+      display: flex;
+      gap: 8px;
+    }
+
+    .preview-nav-dot {
+      width: 24px;
+      height: 3px;
+      border-radius: 2px;
+      opacity: 0.4;
+    }
+
+    .preview-hero {
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .preview-hero-text {
+      flex: 1;
+    }
+
+    .preview-hero-greeting {
+      font-size: 0.55rem;
+      opacity: 0.6;
+      margin-bottom: 2px;
+    }
+
+    .preview-hero-name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 4px;
+    }
+
+    .preview-hero-title {
+      font-size: 0.55rem;
+      opacity: 0.55;
+      margin-bottom: 6px;
+    }
+
+    .preview-btn {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 0.5rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .preview-img {
+      width: 72px;
+      height: 72px;
+      border-radius: 12px;
+      flex-shrink: 0;
+    }
+
+    .preview-cards {
+      display: flex;
+      gap: 6px;
+      padding: 0 16px;
+    }
+
+    .preview-card {
+      flex: 1;
+      border-radius: 8px;
+      padding: 8px;
+    }
+
+    .preview-card-badge {
+      font-size: 0.4rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
+
+    .preview-card-line {
+      height: 2px;
+      border-radius: 1px;
+      opacity: 0.18;
+      margin-bottom: 3px;
+    }
+
+    .preview-card-line.short { width: 60%; }
+
+    .preview-card-play {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      margin-top: 4px;
+    }
+
+    .preview-card-play::after {
+      content: '';
+      width: 0;
+      height: 0;
+      border-left: 5px solid #fff;
+      border-top: 3px solid transparent;
+      border-bottom: 3px solid transparent;
+      margin-left: 1px;
+    }
+
+    /* Theme Info */
+    .theme-info {
+      padding: 16px;
+    }
+
+    .theme-name {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .theme-swatches {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .swatch {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,0,0,0.1);
+      border: 2px solid rgba(0,0,0,0.08);
+      transition: transform 0.2s ease;
+    }
+
+    .swatch:hover { transform: scale(1.15); }
+
+    .swatch-label {
+      font-size: 0.75rem;
+      color: #8a8a96;
+      margin-left: 4px;
+    }
+
+    /* Footer */
+    .page-footer {
+      text-align: center;
+      padding: 2.5rem 0;
+      border-top: 1px solid rgba(0,0,0,0.06);
+      margin-top: 2rem;
+    }
+
+    .footer-text {
+      font-size: 0.88rem;
+      color: #8a8a96;
+    }
+
+    .footer-text a {
+      color: #c96b5e;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer-text a:hover { text-decoration: underline; }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #c96b5e;
+      text-decoration: none;
+    }
+
+    .back-link:hover { text-decoration: underline; }
+
+    /* Selected Summary */
+    .selection-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #fff;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      padding: 12px 0;
+      z-index: 100;
+      transform: translateY(100%);
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 -4px 24px rgba(0,0,0,0.06);
+    }
+
+    .selection-bar.visible { transform: translateY(0); }
+
+    .selection-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .selection-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .selection-preview {
+      display: flex;
+      gap: 4px;
+    }
+
+    .selection-dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid rgba(0,0,0,0.1);
+    }
+
+    .selection-text {
+      font-weight: 600;
+      font-size: 0.92rem;
+    }
+
+    .selection-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 24px;
+      border-radius: 50px;
+      background: #5b3f6a;
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.92rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .selection-btn:hover { background: #4a2d6b; }
+
+    .selection-btn.disabled {
+      background: #cfd6dc;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    @media (max-width: 600px) {
+      .selection-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <a href="../" class="back-link">← Back to Templates</a>
+
+    <header class="page-header">
+      <span class="page-badge">🎨 Color Themes</span>
+      <h1 class="page-title">Choose Template + Color</h1>
+      <p class="page-subtitle">First select a template, then pick from 10 color themes. Your selection opens the template with the chosen palette.</p>
+    </header>
+
+    <section class="step-section" id="step-templates">
+      <div class="step-header">
+        <h2 class="step-title">1. Select a Template</h2>
+        <p class="step-desc">Pick one of the six template designs.</p>
+      </div>
+      <div class="template-grid" id="templateGrid"></div>
+    </section>
+
+    <section class="step-section" id="step-themes">
+      <div class="step-header">
+        <h2 class="step-title">2. Select a Color Theme</h2>
+        <p class="step-desc">Choose a palette, then open the template with your color choice.</p>
+      </div>
+      <div class="theme-grid" id="themeGrid"></div>
+    </section>
+  </div>
+
+  <div class="selection-bar" id="selectionBar">
+    <div class="container selection-inner">
+      <div class="selection-info">
+        <div class="selection-preview" id="selPreview"></div>
+        <span class="selection-text" id="selText">Select a template + color</span>
+      </div>
+      <a class="selection-btn disabled" id="selBtn" href="#" target="_blank">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13.172 3.757l7.071 7.071-1.414 1.414-4.657-4.657V20h-2V7.586l-4.657 4.656-1.414-1.414 7.071-7.071a1 1 0 011.414 0z"/><path d="M4 4h6v2H6v12h12v-4h2v6H4V4z"/></svg>
+        Open Template
+      </a>
+    </div>
+  </div>
+
+  <footer class="page-footer">
+    <div class="container">
+      <p class="footer-text">
+        Designed &amp; Developed by <a href="https://malek-abdelrahman-hassan.github.io/" target="_blank">Malek Abdelrahman</a>
+      </p>
+      <p class="footer-text" style="margin-top: 6px;">
+        Need a voice-over portfolio? <a href="https://voice-over-artist.github.io/templates/" target="_blank">Browse ready-made templates</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    'use strict';
+
+    var templates = [
+      { id: 'standard-1', name: 'Starter 1', tier: 'Starter', desc: 'Warm terracotta style layout', path: '../standard-1/index.html', preview: '../Sites interface/Studio Classic.png' },
+      { id: 'standard-2', name: 'Starter 2', tier: 'Starter', desc: 'Ocean blue modern layout', path: '../standard-2/index.html', preview: '../Sites interface/Modern Minimal.png' },
+      { id: 'professional-1', name: 'Showcase 1', tier: 'Showcase', desc: 'Forest green refined layout', path: '../professional-1/index.html', preview: '../Sites interface/Storyteller Pro.png' },
+      { id: 'professional-2', name: 'Showcase 2', tier: 'Showcase', desc: 'Royal purple editorial layout', path: '../professional-2/index.html', preview: '../Sites interface/Signature Luxe.png' },
+      { id: 'premium-1', name: 'Elite 1', tier: 'Elite', desc: 'Golden elegance premium layout', path: '../premium-1/index.html', preview: '../Sites interface/Cinematic Prestige.png' },
+      { id: 'premium-2', name: 'Elite 2', tier: 'Elite', desc: 'Coral pink luxury layout', path: '../premium-2/index.html', preview: '../Sites interface/Creator Spotlight.png' }
+    ];
+
+    var themes = [
+      { id: 'warm-terracotta', name: 'Warm Terracotta', bg: '#faf6f0', primary: '#c96b5e', dark: '#5c3d2e', soft: '#e8ddd0', text: '#2c2c34', surface: '#ffffff' },
+      { id: 'ocean-blue', name: 'Ocean Blue', bg: '#f7f9fc', primary: '#4a90d9', dark: '#1a3a5c', soft: '#e8f0fa', text: '#1e2a3a', surface: '#ffffff' },
+      { id: 'forest-green', name: 'Forest Green', bg: '#f5f7f2', primary: '#7ba68a', dark: '#2d5a3d', soft: '#e8f0e6', text: '#2c3330', surface: '#ffffff' },
+      { id: 'royal-purple', name: 'Royal Purple', bg: '#f8f5fc', primary: '#8b6aae', dark: '#4a2d6b', soft: '#ede5f7', text: '#2c2838', surface: '#ffffff' },
+      { id: 'golden-elegance', name: 'Golden Elegance', bg: '#fffdf7', primary: '#b8860b', dark: '#2c2c2c', soft: '#f5e6c8', text: '#2c2c2c', surface: '#ffffff' },
+      { id: 'coral-pink', name: 'Coral Pink', bg: '#fff8f6', primary: '#e07060', dark: '#8b3a3a', soft: '#fce4e0', text: '#2c2428', surface: '#ffffff' },
+      { id: 'slate-blue', name: 'Slate Blue', bg: '#f5f6fa', primary: '#6b7fa0', dark: '#2e3a52', soft: '#dde1ee', text: '#1e2232', surface: '#ffffff' },
+      { id: 'rose-gold', name: 'Rose Gold', bg: '#fdf7f5', primary: '#c27858', dark: '#5a2e22', soft: '#f2e0d6', text: '#2c2420', surface: '#ffffff' },
+      { id: 'deep-emerald', name: 'Deep Emerald', bg: '#f5faf7', primary: '#2e8b6a', dark: '#1a3a2e', soft: '#d2ece2', text: '#1a2e24', surface: '#ffffff' },
+      { id: 'midnight-navy', name: 'Midnight Navy', bg: '#f5f7fa', primary: '#3d6fa5', dark: '#1c3050', soft: '#dde6f2', text: '#1e2a3a', surface: '#ffffff' },
+      { id: 'dark-charcoal', name: 'Dark Charcoal', bg: '#1a1a22', primary: '#c96b5e', dark: '#e8c4b8', soft: '#2a2a35', text: '#e8e8ec', surface: '#242430', isDark: true },
+      { id: 'dark-midnight', name: 'Dark Midnight', bg: '#0f1623', primary: '#5b9bd5', dark: '#a8c8e8', soft: '#1a2435', text: '#dce4f0', surface: '#172030', isDark: true }
+    ];
+
+    function buildTemplateCard(template) {
+      var card = document.createElement('div');
+      card.className = 'template-card';
+      card.setAttribute('data-template', template.id);
+
+      card.innerHTML =
+        '<span class="template-badge">' + template.tier + '</span>' +
+        '<div class="template-name">' + template.name + '</div>' +
+        '<div class="template-desc">' + template.desc + '</div>' +
+        '<div class="template-preview">' +
+          '<img src="' + template.preview + '" alt="' + template.name + ' template preview">' +
+        '</div>';
+
+      card.addEventListener('click', function () {
+        selectTemplate(card, template);
+      });
+
+      return card;
+    }
+
+    function buildThemeCard(theme) {
+      var card = document.createElement('div');
+      card.className = 'theme-card';
+      card.setAttribute('data-theme', theme.name);
+      var headColor = theme.isDark ? theme.text : theme.dark;
+      var lineColor = theme.isDark ? theme.text : theme.dark;
+
+      card.innerHTML =
+        '<div class="preview" style="background:' + theme.bg + '">' +
+          '<div class="preview-header">' +
+            '<span class="preview-logo" style="color:' + headColor + '">VO Artist</span>' +
+            '<div class="preview-nav">' +
+              '<span class="preview-nav-dot" style="background:' + headColor + '"></span>' +
+              '<span class="preview-nav-dot" style="background:' + headColor + '"></span>' +
+              '<span class="preview-nav-dot" style="background:' + headColor + '"></span>' +
+            '</div>' +
+          '</div>' +
+          '<div class="preview-hero">' +
+            '<div class="preview-hero-text">' +
+              '<div class="preview-hero-greeting" style="color:' + theme.text + '">Hello, I\'m</div>' +
+              '<div class="preview-hero-name" style="color:' + theme.primary + '">Voice Artist</div>' +
+              '<div class="preview-hero-title" style="color:' + theme.text + '">Professional Voice Over</div>' +
+              '<span class="preview-btn" style="background:' + theme.primary + '">Listen</span>' +
+            '</div>' +
+            '<div class="preview-img" style="background:linear-gradient(135deg,' + theme.soft + ',' + theme.primary + '40)"></div>' +
+          '</div>' +
+          '<div class="preview-cards">' +
+            '<div class="preview-card" style="background:' + theme.soft + '">' +
+              '<div class="preview-card-badge" style="color:' + theme.primary + '">Demo</div>' +
+              '<div class="preview-card-line" style="background:' + lineColor + '"></div>' +
+              '<div class="preview-card-line short" style="background:' + lineColor + '"></div>' +
+              '<div class="preview-card-play" style="background:' + theme.primary + '"></div>' +
+            '</div>' +
+            '<div class="preview-card" style="background:' + theme.soft + '">' +
+              '<div class="preview-card-badge" style="color:' + theme.primary + '">Demo</div>' +
+              '<div class="preview-card-line" style="background:' + lineColor + '"></div>' +
+              '<div class="preview-card-line short" style="background:' + lineColor + '"></div>' +
+              '<div class="preview-card-play" style="background:' + theme.primary + '"></div>' +
+            '</div>' +
+            '<div class="preview-card" style="background:' + theme.soft + '">' +
+              '<div class="preview-card-badge" style="color:' + theme.primary + '">Demo</div>' +
+              '<div class="preview-card-line" style="background:' + lineColor + '"></div>' +
+              '<div class="preview-card-line short" style="background:' + lineColor + '"></div>' +
+              '<div class="preview-card-play" style="background:' + theme.primary + '"></div>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="theme-info">' +
+          '<div class="theme-name">' + theme.name + (theme.isDark ? ' <span style="font-size:.7rem;opacity:.5">DARK</span>' : '') + '</div>' +
+          '<div class="theme-swatches">' +
+            '<span class="swatch" style="background:' + theme.bg + '" title="Background"></span>' +
+            '<span class="swatch" style="background:' + theme.primary + '" title="Primary"></span>' +
+            '<span class="swatch" style="background:' + theme.dark + '" title="Dark"></span>' +
+            '<span class="swatch" style="background:' + theme.soft + '" title="Soft"></span>' +
+            '<span class="swatch-label">4 colors</span>' +
+          '</div>' +
+        '</div>';
+
+      card.addEventListener('click', function () {
+        selectTheme(card, theme);
+      });
+
+      return card;
+    }
+
+    var templateGrid = document.getElementById('templateGrid');
+    templates.forEach(function (template) {
+      templateGrid.appendChild(buildTemplateCard(template));
+    });
+
+    var themeGrid = document.getElementById('themeGrid');
+    themes.forEach(function (theme) {
+      themeGrid.appendChild(buildThemeCard(theme));
+    });
+
+    var selBar = document.getElementById('selectionBar');
+    var selPreview = document.getElementById('selPreview');
+    var selText = document.getElementById('selText');
+    var selBtn = document.getElementById('selBtn');
+
+    var selectedTemplate = null;
+    var selectedTheme = null;
+
+    function selectTemplate(card, template) {
+      document.querySelectorAll('.template-card').forEach(function (c) {
+        c.classList.remove('selected');
+      });
+      card.classList.add('selected');
+      selectedTemplate = template;
+      updateSelection();
+    }
+
+    function selectTheme(card, theme) {
+      document.querySelectorAll('.theme-card').forEach(function (c) {
+        c.classList.remove('selected');
+      });
+      card.classList.add('selected');
+      selectedTheme = theme;
+      updateSelection();
+    }
+
+    function updateSelection() {
+      if (!selectedTemplate || !selectedTheme) {
+        selBar.classList.remove('visible');
+        return;
+      }
+
+      selPreview.innerHTML =
+        '<span class="selection-dot" style="background:' + selectedTheme.bg + '"></span>' +
+        '<span class="selection-dot" style="background:' + selectedTheme.primary + '"></span>' +
+        '<span class="selection-dot" style="background:' + selectedTheme.dark + '"></span>';
+
+      selText.textContent = selectedTemplate.name + ' — ' + selectedTheme.name;
+      selBtn.href = selectedTemplate.path + '?theme=' + selectedTheme.id;
+      selBtn.classList.remove('disabled');
+      selBar.classList.add('visible');
+    }
+  })();
+  </script>
+</body>
+</html>
