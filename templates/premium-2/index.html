@@ -39,7 +39,7 @@
 
   <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
 
-  <audio id="demoAudio" src="../voice sample.mp3" preload="auto"></audio>
+  <audio id="demoAudio" preload="auto"></audio>
 
   <main>
     <section id="hero" class="hero">
@@ -85,7 +85,7 @@
               <h3 class="sample-title">Neon Fridays — binge teaser</h3>
               <div class="sample-footer">
                 <span class="sample-duration"><i class="fa-regular fa-clock" aria-hidden="true"></i> 0:52</span>
-                <button type="button" class="sample-play" aria-label="Play Neon Fridays demo">
+                <button type="button" class="sample-play" data-src="../Voice Samples Female/Ad-CuppaSoup.wav" aria-label="Play Neon Fridays demo">
                   <i class="fa-solid fa-play" aria-hidden="true"></i>
                 </button>
               </div>
@@ -98,7 +98,7 @@
               <h3 class="sample-title">Solstice Sunglasses — summer anthem</h3>
               <div class="sample-footer">
                 <span class="sample-duration"><i class="fa-regular fa-clock" aria-hidden="true"></i> 0:38</span>
-                <button type="button" class="sample-play" aria-label="Play Solstice Sunglasses demo">
+                <button type="button" class="sample-play" data-src="../Voice Samples Female/Amazon_Eastwood_EMA3_Radio_30_Aug20.mp3" aria-label="Play Solstice Sunglasses demo">
                   <i class="fa-solid fa-play" aria-hidden="true"></i>
                 </button>
               </div>
@@ -111,7 +111,7 @@
               <h3 class="sample-title">Riverlight — episode hook</h3>
               <div class="sample-footer">
                 <span class="sample-duration"><i class="fa-regular fa-clock" aria-hidden="true"></i> 1:06</span>
-                <button type="button" class="sample-play" aria-label="Play Riverlight demo">
+                <button type="button" class="sample-play" data-src="../Voice Samples Female/AS_MemoryWalk_Midlands_30_May25.mp3" aria-label="Play Riverlight demo">
                   <i class="fa-solid fa-play" aria-hidden="true"></i>
                 </button>
               </div>
@@ -124,7 +124,7 @@
               <h3 class="sample-title">Turbo Noodle — mascot chaos</h3>
               <div class="sample-footer">
                 <span class="sample-duration"><i class="fa-regular fa-clock" aria-hidden="true"></i> 0:44</span>
-                <button type="button" class="sample-play" aria-label="Play Turbo Noodle demo">
+                <button type="button" class="sample-play" data-src="../Voice Samples Female/e-learningexample.mp3" aria-label="Play Turbo Noodle demo">
                   <i class="fa-solid fa-play" aria-hidden="true"></i>
                 </button>
               </div>
@@ -137,7 +137,7 @@
               <h3 class="sample-title">HarborWorks — futures keynote opener</h3>
               <div class="sample-footer">
                 <span class="sample-duration"><i class="fa-regular fa-clock" aria-hidden="true"></i> 1:18</span>
-                <button type="button" class="sample-play" aria-label="Play HarborWorks demo">
+                <button type="button" class="sample-play" data-src="../Voice Samples Female/LB-Donna-ad-6b.mp3" aria-label="Play HarborWorks demo">
                   <i class="fa-solid fa-play" aria-hidden="true"></i>
                 </button>
               </div>
@@ -150,7 +150,7 @@
               <h3 class="sample-title">GlowRoutine — skincare carousel VO</h3>
               <div class="sample-footer">
                 <span class="sample-duration"><i class="fa-regular fa-clock" aria-hidden="true"></i> 0:29</span>
-                <button type="button" class="sample-play" aria-label="Play GlowRoutine demo">
+                <button type="button" class="sample-play" data-src="../Voice Samples Female/ToeZone_EasyFit_30_Aug20.mp3" aria-label="Play GlowRoutine demo">
                   <i class="fa-solid fa-play" aria-hidden="true"></i>
                 </button>
               </div>
@@ -509,6 +509,7 @@
             btn.classList.remove('is-playing');
             activeBtn = null;
           } else {
+            audio.src = btn.getAttribute('data-src');
             audio.currentTime = 0;
             audio.play();
             icon.classList.remove('fa-play');

@@ -36,7 +36,7 @@
 
   <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
 
-  <audio id="demoAudio" src="../voice sample.mp3" preload="auto"></audio>
+  <audio id="demoAudio" preload="auto"></audio>
 
   <main>
     <section id="hero" class="hero">
@@ -77,7 +77,7 @@
             <h3 class="sample-title">Maison Velour — Evening collection</h3>
             <div class="sample-footer">
               <span class="sample-duration"><i class="fa-regular fa-clock" aria-hidden="true"></i> 0:38</span>
-              <button type="button" class="sample-play" aria-label="Play Maison Velour demo">
+              <button type="button" class="sample-play" data-src="../Voice Samples Female/Ad-CuppaSoup.wav" aria-label="Play Maison Velour demo">
                 <i class="fa-solid fa-play" aria-hidden="true"></i>
               </button>
             </div>
@@ -88,7 +88,7 @@
             <h3 class="sample-title">Saffron Roads — Episode 2</h3>
             <div class="sample-footer">
               <span class="sample-duration"><i class="fa-regular fa-clock" aria-hidden="true"></i> 1:12</span>
-              <button type="button" class="sample-play" aria-label="Play Saffron Roads demo">
+              <button type="button" class="sample-play" data-src="../Voice Samples Female/Amazon_Eastwood_EMA3_Radio_30_Aug20.mp3" aria-label="Play Saffron Roads demo">
                 <i class="fa-solid fa-play" aria-hidden="true"></i>
               </button>
             </div>
@@ -99,7 +99,7 @@
             <h3 class="sample-title">Starlit Conservatory — Pilot scene</h3>
             <div class="sample-footer">
               <span class="sample-duration"><i class="fa-regular fa-clock" aria-hidden="true"></i> 0:54</span>
-              <button type="button" class="sample-play" aria-label="Play animation demo">
+              <button type="button" class="sample-play" data-src="../Voice Samples Female/AS_MemoryWalk_Midlands_30_May25.mp3" aria-label="Play animation demo">
                 <i class="fa-solid fa-play" aria-hidden="true"></i>
               </button>
             </div>
@@ -110,7 +110,7 @@
             <h3 class="sample-title">Velvet Ledger — Show intro bed</h3>
             <div class="sample-footer">
               <span class="sample-duration"><i class="fa-regular fa-clock" aria-hidden="true"></i> 0:29</span>
-              <button type="button" class="sample-play" aria-label="Play podcast imaging demo">
+              <button type="button" class="sample-play" data-src="../Voice Samples Female/e-learningexample.mp3" aria-label="Play podcast imaging demo">
                 <i class="fa-solid fa-play" aria-hidden="true"></i>
               </button>
             </div>
@@ -121,7 +121,7 @@
             <h3 class="sample-title">Obsidian Atlas — Vision film</h3>
             <div class="sample-footer">
               <span class="sample-duration"><i class="fa-regular fa-clock" aria-hidden="true"></i> 0:47</span>
-              <button type="button" class="sample-play" aria-label="Play Obsidian Atlas demo">
+              <button type="button" class="sample-play" data-src="../Voice Samples Female/LB-Donna-ad-6b.mp3" aria-label="Play Obsidian Atlas demo">
                 <i class="fa-solid fa-play" aria-hidden="true"></i>
               </button>
             </div>
@@ -132,7 +132,7 @@
             <h3 class="sample-title">The Glass Orchard — Literary fiction</h3>
             <div class="sample-footer">
               <span class="sample-duration"><i class="fa-regular fa-clock" aria-hidden="true"></i> 2:03</span>
-              <button type="button" class="sample-play" aria-label="Play audiobook demo">
+              <button type="button" class="sample-play" data-src="../Voice Samples Female/ToeZone_EasyFit_30_Aug20.mp3" aria-label="Play audiobook demo">
                 <i class="fa-solid fa-play" aria-hidden="true"></i>
               </button>
             </div>
@@ -339,6 +339,7 @@
       document.querySelectorAll('.sample-play').forEach(function (btn) {
         btn.addEventListener('click', function () {
           var icon = btn.querySelector('i');
+          var src = btn.getAttribute('data-src');
 
           if (activeBtn && activeBtn !== btn) {
             var prevIcon = activeBtn.querySelector('i');
@@ -354,6 +355,7 @@
             btn.classList.remove('is-playing');
             activeBtn = null;
           } else {
+            audio.src = src;
             audio.currentTime = 0;
             audio.play();
             icon.classList.remove('fa-play');

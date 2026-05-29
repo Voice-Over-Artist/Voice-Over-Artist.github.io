@@ -39,7 +39,7 @@
 
   <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
 
-  <audio id="demoAudio" src="../voice sample.mp3" preload="auto"></audio>
+  <audio id="demoAudio" preload="auto"></audio>
 
   <main>
     <section id="hero" class="hero">
@@ -83,7 +83,7 @@
             <h3 class="sample-title">Apex Horizon — Launch manifesto</h3>
             <div class="sample-footer">
               <span class="sample-duration"><i class="fa-regular fa-clock" aria-hidden="true"></i> 1:08</span>
-              <button type="button" class="sample-play" aria-label="Play Apex Horizon demo">
+              <button type="button" class="sample-play" data-src="../Voice Samples Male/Tony-Collins-Fogarty-Corporate-Voiceovers-2020.mp3" aria-label="Play Apex Horizon demo">
                 <i class="fa-solid fa-play" aria-hidden="true"></i>
               </button>
             </div>
@@ -93,7 +93,7 @@
             <h3 class="sample-title">Thursday Nights — Network anthem</h3>
             <div class="sample-footer">
               <span class="sample-duration"><i class="fa-regular fa-clock" aria-hidden="true"></i> 0:54</span>
-              <button type="button" class="sample-play" aria-label="Play Thursday Nights demo">
+              <button type="button" class="sample-play" data-src="../Voice Samples Male/Tony-Collins-Fogarty-Drama-Monologue.mp3" aria-label="Play Thursday Nights demo">
                 <i class="fa-solid fa-play" aria-hidden="true"></i>
               </button>
             </div>
@@ -103,7 +103,7 @@
             <h3 class="sample-title">Glass Cities — Episode opener</h3>
             <div class="sample-footer">
               <span class="sample-duration"><i class="fa-regular fa-clock" aria-hidden="true"></i> 1:22</span>
-              <button type="button" class="sample-play" aria-label="Play Glass Cities demo">
+              <button type="button" class="sample-play" data-src="../Voice Samples Male/Tony-Collins-Fogarty-Dubbing-Demo-2023.mp3" aria-label="Play Glass Cities demo">
                 <i class="fa-solid fa-play" aria-hidden="true"></i>
               </button>
             </div>
@@ -113,7 +113,7 @@
             <h3 class="sample-title">Meridian Trust — Institutional spot</h3>
             <div class="sample-footer">
               <span class="sample-duration"><i class="fa-regular fa-clock" aria-hidden="true"></i> 0:47</span>
-              <button type="button" class="sample-play" aria-label="Play Meridian Trust demo">
+              <button type="button" class="sample-play" data-src="../Voice Samples Male/Tony-Collins-Fogarty-ELearning-Voiceovers-2020.mp3" aria-label="Play Meridian Trust demo">
                 <i class="fa-solid fa-play" aria-hidden="true"></i>
               </button>
             </div>
@@ -123,7 +123,7 @@
             <h3 class="sample-title">Ashfall — Season teaser</h3>
             <div class="sample-footer">
               <span class="sample-duration"><i class="fa-regular fa-clock" aria-hidden="true"></i> 0:41</span>
-              <button type="button" class="sample-play" aria-label="Play Ashfall demo">
+              <button type="button" class="sample-play" data-src="../Voice Samples Male/Tony-Collins-Fogarty-Heritage-Audio-Guides-Voiceovers.mp3" aria-label="Play Ashfall demo">
                 <i class="fa-solid fa-play" aria-hidden="true"></i>
               </button>
             </div>
@@ -133,7 +133,7 @@
             <h3 class="sample-title">Atlas Private Isles — Invitation film</h3>
             <div class="sample-footer">
               <span class="sample-duration"><i class="fa-regular fa-clock" aria-hidden="true"></i> 1:15</span>
-              <button type="button" class="sample-play" aria-label="Play Atlas Private Isles demo">
+              <button type="button" class="sample-play" data-src="../Voice Samples Male/Tony-Collins-Fogarty-IVR-On-Hold-Voiceovers-2020.mp3" aria-label="Play Atlas Private Isles demo">
                 <i class="fa-solid fa-play" aria-hidden="true"></i>
               </button>
             </div>
@@ -497,6 +497,7 @@
             btn.classList.remove('is-playing');
             activeBtn = null;
           } else {
+            audio.src = btn.getAttribute('data-src');
             audio.currentTime = 0;
             audio.play();
             icon.classList.remove('fa-play');

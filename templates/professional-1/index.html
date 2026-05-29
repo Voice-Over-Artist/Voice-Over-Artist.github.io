@@ -36,7 +36,7 @@
 
   <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
 
-  <audio id="demoAudio" src="../voice sample.mp3" preload="auto"></audio>
+  <audio id="demoAudio" preload="auto"></audio>
 
   <main>
     <section id="hero" class="hero">
@@ -75,7 +75,7 @@
             <h3 class="sample-title">Riverwood Organics — Spring launch</h3>
             <div class="sample-footer">
               <span class="sample-duration"><i class="fa-regular fa-clock" aria-hidden="true"></i> 0:32</span>
-              <button type="button" class="sample-play" aria-label="Play Riverwood demo">
+              <button type="button" class="sample-play" data-src="../Voice Samples Female/Ad-CuppaSoup.wav" aria-label="Play Riverwood demo">
                 <i class="fa-solid fa-play" aria-hidden="true"></i>
               </button>
             </div>
@@ -85,7 +85,7 @@
             <h3 class="sample-title">Atlas of Tides — Episode 4</h3>
             <div class="sample-footer">
               <span class="sample-duration"><i class="fa-regular fa-clock" aria-hidden="true"></i> 1:05</span>
-              <button type="button" class="sample-play" aria-label="Play Atlas of Tides demo">
+              <button type="button" class="sample-play" data-src="../Voice Samples Female/Amazon_Eastwood_EMA3_Radio_30_Aug20.mp3" aria-label="Play Atlas of Tides demo">
                 <i class="fa-solid fa-play" aria-hidden="true"></i>
               </button>
             </div>
@@ -95,7 +95,7 @@
             <h3 class="sample-title">MedPath — Pharmacology primer</h3>
             <div class="sample-footer">
               <span class="sample-duration"><i class="fa-regular fa-clock" aria-hidden="true"></i> 0:48</span>
-              <button type="button" class="sample-play" aria-label="Play MedPath demo">
+              <button type="button" class="sample-play" data-src="../Voice Samples Female/AS_MemoryWalk_Midlands_30_May25.mp3" aria-label="Play MedPath demo">
                 <i class="fa-solid fa-play" aria-hidden="true"></i>
               </button>
             </div>
@@ -105,7 +105,7 @@
             <h3 class="sample-title">Nimbus Cloud — Investor day</h3>
             <div class="sample-footer">
               <span class="sample-duration"><i class="fa-regular fa-clock" aria-hidden="true"></i> 0:41</span>
-              <button type="button" class="sample-play" aria-label="Play Nimbus demo">
+              <button type="button" class="sample-play" data-src="../Voice Samples Female/e-learningexample.mp3" aria-label="Play Nimbus demo">
                 <i class="fa-solid fa-play" aria-hidden="true"></i>
               </button>
             </div>
@@ -115,7 +115,7 @@
             <h3 class="sample-title">The Lantern House — Fiction sample</h3>
             <div class="sample-footer">
               <span class="sample-duration"><i class="fa-regular fa-clock" aria-hidden="true"></i> 2:10</span>
-              <button type="button" class="sample-play" aria-label="Play audiobook demo">
+              <button type="button" class="sample-play" data-src="../Voice Samples Female/LB-Donna-ad-6b.mp3" aria-label="Play audiobook demo">
                 <i class="fa-solid fa-play" aria-hidden="true"></i>
               </button>
             </div>
@@ -125,7 +125,7 @@
             <h3 class="sample-title">Cedarline Bank — Phone system</h3>
             <div class="sample-footer">
               <span class="sample-duration"><i class="fa-regular fa-clock" aria-hidden="true"></i> 0:36</span>
-              <button type="button" class="sample-play" aria-label="Play IVR demo">
+              <button type="button" class="sample-play" data-src="../Voice Samples Female/ToeZone_EasyFit_30_Aug20.mp3" aria-label="Play IVR demo">
                 <i class="fa-solid fa-play" aria-hidden="true"></i>
               </button>
             </div>
@@ -334,6 +334,7 @@
       document.querySelectorAll('.sample-play').forEach(function (btn) {
         btn.addEventListener('click', function () {
           var icon = btn.querySelector('i');
+          var src = btn.getAttribute('data-src');
 
           if (activeBtn && activeBtn !== btn) {
             var prevIcon = activeBtn.querySelector('i');
@@ -349,6 +350,7 @@
             btn.classList.remove('is-playing');
             activeBtn = null;
           } else {
+            audio.src = src;
             audio.currentTime = 0;
             audio.play();
             icon.classList.remove('fa-play');

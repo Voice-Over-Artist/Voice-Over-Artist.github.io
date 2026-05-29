@@ -34,7 +34,7 @@
 
   <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
 
-  <audio id="demoAudio" src="../voice sample.mp3" preload="auto"></audio>
+  <audio id="demoAudio" preload="auto"></audio>
 
   <main>
     <section id="hero" class="hero">
@@ -79,7 +79,7 @@
                 <p class="demo-meta"><span class="demo-duration">1:06</span></p>
               </div>
             </div>
-            <button type="button" class="demo-play" aria-label="Play demo: Azure Currents">
+            <button type="button" class="demo-play" data-src="../Voice Samples Male/Tony-Collins-Fogarty-Corporate-Voiceovers-2020.mp3" aria-label="Play demo: Azure Currents">
               <i class="fa-solid fa-play" aria-hidden="true"></i>
             </button>
           </article>
@@ -93,7 +93,7 @@
                 <p class="demo-meta"><span class="demo-duration">0:28</span></p>
               </div>
             </div>
-            <button type="button" class="demo-play" aria-label="Play demo: HarborLine Banking">
+            <button type="button" class="demo-play" data-src="../Voice Samples Male/Tony-Collins-Fogarty-Drama-Monologue.mp3" aria-label="Play demo: HarborLine Banking">
               <i class="fa-solid fa-play" aria-hidden="true"></i>
             </button>
           </article>
@@ -107,7 +107,7 @@
                 <p class="demo-meta"><span class="demo-duration">2:14</span></p>
               </div>
             </div>
-            <button type="button" class="demo-play" aria-label="Play demo: The Quiet Compass">
+            <button type="button" class="demo-play" data-src="../Voice Samples Male/Tony-Collins-Fogarty-Dubbing-Demo-2023.mp3" aria-label="Play demo: The Quiet Compass">
               <i class="fa-solid fa-play" aria-hidden="true"></i>
             </button>
           </article>
@@ -121,7 +121,7 @@
                 <p class="demo-meta"><span class="demo-duration">0:41</span></p>
               </div>
             </div>
-            <button type="button" class="demo-play" aria-label="Play demo: MetroTransit IVR">
+            <button type="button" class="demo-play" data-src="../Voice Samples Male/Tony-Collins-Fogarty-ELearning-Voiceovers-2020.mp3" aria-label="Play demo: MetroTransit IVR">
               <i class="fa-solid fa-play" aria-hidden="true"></i>
             </button>
           </article>
@@ -135,7 +135,7 @@
                 <p class="demo-meta"><span class="demo-duration">0:36</span></p>
               </div>
             </div>
-            <button type="button" class="demo-play" aria-label="Play demo: NorthPeak SaaS">
+            <button type="button" class="demo-play" data-src="../Voice Samples Male/Tony-Collins-Fogarty-Heritage-Audio-Guides-Voiceovers.mp3" aria-label="Play demo: NorthPeak SaaS">
               <i class="fa-solid fa-play" aria-hidden="true"></i>
             </button>
           </article>
@@ -149,7 +149,7 @@
                 <p class="demo-meta"><span class="demo-duration">0:52</span></p>
               </div>
             </div>
-            <button type="button" class="demo-play" aria-label="Play demo: Urban Layers">
+            <button type="button" class="demo-play" data-src="../Voice Samples Male/Tony-Collins-Fogarty-IVR-On-Hold-Voiceovers-2020.mp3" aria-label="Play demo: Urban Layers">
               <i class="fa-solid fa-play" aria-hidden="true"></i>
             </button>
           </article>
@@ -302,23 +302,28 @@
       document.querySelectorAll('.demo-play').forEach(function (btn) {
         btn.addEventListener('click', function () {
           var icon = btn.querySelector('i');
+          var src = btn.getAttribute('data-src');
 
           if (activeBtn && activeBtn !== btn) {
             var prevIcon = activeBtn.querySelector('i');
             prevIcon.classList.remove('fa-pause');
             prevIcon.classList.add('fa-play');
+            activeBtn.classList.remove('is-playing');
           }
 
           if (activeBtn === btn && !audio.paused) {
             audio.pause();
             icon.classList.remove('fa-pause');
             icon.classList.add('fa-play');
+            btn.classList.remove('is-playing');
             activeBtn = null;
           } else {
+            audio.src = src;
             audio.currentTime = 0;
             audio.play();
             icon.classList.remove('fa-play');
             icon.classList.add('fa-pause');
+            btn.classList.add('is-playing');
             activeBtn = btn;
           }
         });
@@ -329,6 +334,7 @@
           var icon = activeBtn.querySelector('i');
           icon.classList.remove('fa-pause');
           icon.classList.add('fa-play');
+          activeBtn.classList.remove('is-playing');
           activeBtn = null;
         }
       });
