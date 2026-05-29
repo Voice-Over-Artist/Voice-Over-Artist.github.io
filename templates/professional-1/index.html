@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Amira Farouk — Voice Over Artist & Narrator</title>
-  <meta name="description" content="Warm, cinematic narration and versatile voice-over for commercials, documentaries, e-learning, and audiobooks—crafted with clarity and presence.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎙️</text></svg>">
+  <meta name="description" content="Amira Farouk — Professional voice-over artist and narrator for commercials, documentaries, e-learning, and audiobooks.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -23,10 +24,10 @@
       <nav id="primary-nav" class="primary-nav" aria-label="Primary">
         <ul class="nav-list">
           <li><a href="#hero">Home</a></li>
-          <li><a href="#about">About</a></li>
           <li><a href="#samples">Samples</a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#about">About</a></li>
           <li><a href="#clients">Clients</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
           <li><a href="#contact" class="nav-cta">Contact</a></li>
         </ul>
       </nav>
@@ -34,6 +35,8 @@
   </header>
 
   <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
+
+  <audio id="demoAudio" src="../voice sample.mp3" preload="auto"></audio>
 
   <main>
     <section id="hero" class="hero">
@@ -51,22 +54,82 @@
             <a href="#contact" class="btn btn-soft">Book a session</a>
           </div>
         </div>
-        <div class="hero-visual animate-up animate-delay-1" aria-hidden="true">
-          <div class="hero-card">
-            <div class="leaf-cluster">
-              <span class="leaf leaf-a"></span>
-              <span class="leaf leaf-b"></span>
-              <span class="leaf leaf-c"></span>
+        <div class="hero-visual animate-up animate-delay-1">
+          <img class="hero-image" src="Amira Farouk Studio.png" alt="Amira Farouk recording in the studio">
+        </div>
+      </div>
+    </section>
+
+    <section id="samples" class="samples section section-alt">
+      <div class="container">
+        <header class="section-header animate-up">
+          <span class="section-eyebrow">Voice samples</span>
+          <h2 class="section-title">Demos tuned for decision-makers</h2>
+          <p class="section-lead">
+            Listen to a selection of recent work across different genres and styles.
+          </p>
+        </header>
+        <div class="sample-grid animate-up animate-delay-1">
+          <article class="sample-card card-surface">
+            <span class="sample-badge">Commercial</span>
+            <h3 class="sample-title">Riverwood Organics — Spring launch</h3>
+            <div class="sample-footer">
+              <span class="sample-duration"><i class="fa-regular fa-clock" aria-hidden="true"></i> 0:32</span>
+              <button type="button" class="sample-play" aria-label="Play Riverwood demo">
+                <i class="fa-solid fa-play" aria-hidden="true"></i>
+              </button>
             </div>
-            <div class="organic-wave" role="presentation">
-              <span></span><span></span><span></span><span></span><span></span>
-              <span></span><span></span><span></span><span></span><span></span>
-              <span></span><span></span><span></span><span></span>
+          </article>
+          <article class="sample-card card-surface">
+            <span class="sample-badge">Documentary</span>
+            <h3 class="sample-title">Atlas of Tides — Episode 4</h3>
+            <div class="sample-footer">
+              <span class="sample-duration"><i class="fa-regular fa-clock" aria-hidden="true"></i> 1:05</span>
+              <button type="button" class="sample-play" aria-label="Play Atlas of Tides demo">
+                <i class="fa-solid fa-play" aria-hidden="true"></i>
+              </button>
             </div>
-            <div class="hero-ring">
-              <i class="fa-solid fa-microphone-lines hero-icon"></i>
+          </article>
+          <article class="sample-card card-surface">
+            <span class="sample-badge">E-Learning</span>
+            <h3 class="sample-title">MedPath — Pharmacology primer</h3>
+            <div class="sample-footer">
+              <span class="sample-duration"><i class="fa-regular fa-clock" aria-hidden="true"></i> 0:48</span>
+              <button type="button" class="sample-play" aria-label="Play MedPath demo">
+                <i class="fa-solid fa-play" aria-hidden="true"></i>
+              </button>
             </div>
-          </div>
+          </article>
+          <article class="sample-card card-surface">
+            <span class="sample-badge">Corporate</span>
+            <h3 class="sample-title">Nimbus Cloud — Investor day</h3>
+            <div class="sample-footer">
+              <span class="sample-duration"><i class="fa-regular fa-clock" aria-hidden="true"></i> 0:41</span>
+              <button type="button" class="sample-play" aria-label="Play Nimbus demo">
+                <i class="fa-solid fa-play" aria-hidden="true"></i>
+              </button>
+            </div>
+          </article>
+          <article class="sample-card card-surface">
+            <span class="sample-badge">Audiobook</span>
+            <h3 class="sample-title">The Lantern House — Fiction sample</h3>
+            <div class="sample-footer">
+              <span class="sample-duration"><i class="fa-regular fa-clock" aria-hidden="true"></i> 2:10</span>
+              <button type="button" class="sample-play" aria-label="Play audiobook demo">
+                <i class="fa-solid fa-play" aria-hidden="true"></i>
+              </button>
+            </div>
+          </article>
+          <article class="sample-card card-surface">
+            <span class="sample-badge">IVR</span>
+            <h3 class="sample-title">Cedarline Bank — Phone system</h3>
+            <div class="sample-footer">
+              <span class="sample-duration"><i class="fa-regular fa-clock" aria-hidden="true"></i> 0:36</span>
+              <button type="button" class="sample-play" aria-label="Play IVR demo">
+                <i class="fa-solid fa-play" aria-hidden="true"></i>
+              </button>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -75,22 +138,28 @@
       <div class="container">
         <header class="section-header animate-up">
           <span class="section-eyebrow">About</span>
-          <h2 class="section-title">Grounded reads with cinematic rhythm</h2>
+          <h2 class="section-title">Professional voice, cinematic presence</h2>
           <p class="section-lead">
-            Fifteen years behind the mic—guided listening, collaborative sessions, and mixes that translate cleanly across speakers, earbuds, and cinema chains.
+            Versatile narration that translates cleanly across speakers, earbuds, and cinema—always grounded, always human.
           </p>
         </header>
         <div class="about-grid animate-up animate-delay-1">
           <div class="about-card card-surface">
-            <div class="about-avatar" aria-hidden="true">
-              <span class="about-initials">AF</span>
+            <div class="about-avatar">
+              <img src="Amira Farouk Profile.png" alt="Amira Farouk — Voice Over Artist">
             </div>
             <div class="about-body">
               <p>
-                Amira Farouk is an Egyptian-American narrator known for articulate delivery and emotionally intelligent tone matching. With a broadcast engineering background and long-form narration experience, she keeps technical projects accurate while preserving warmth and momentum.
+                Amira Farouk is a professional voice-over artist and narrator with extensive experience
+                across commercials, documentaries, e-learning, and audiobooks. Working from a fully
+                treated studio with broadcast-standard equipment, she delivers polished reads that
+                sit cleanly in any mix—from intimate whisper-close narration to confident retail energy.
               </p>
               <p>
-                Sessions are directed live (Source-Connect, Zoom, or phone patch) or delivered as polished, labeled files ready for post. She regularly works across MENA brands, US docu-series, and global e-learning curricula.
+                Collaborative and direction-friendly, Amira works seamlessly with production teams
+                via live sessions or delivers labeled, mastered files ready for post. Every project
+                is handled with precision, quick turnaround, and a commitment to capturing
+                exactly the right tone.
               </p>
               <ul class="about-meta">
                 <li><strong>Experience</strong> 15+ years</li>
@@ -111,82 +180,19 @@
       </div>
     </section>
 
-    <section id="samples" class="samples section section-alt">
+    <section id="clients" class="clients section section-alt">
       <div class="container">
         <header class="section-header animate-up">
-          <span class="section-eyebrow">Voice samples</span>
-          <h2 class="section-title">Demos tuned for decision-makers</h2>
-          <p class="section-lead">
-            Each clip is mastered to -3 dBTP with gentle de-essing—ready to drop into review rounds, focus groups, or client presentations.
-          </p>
+          <span class="section-eyebrow">Clients</span>
+          <h2 class="section-title">Trusted by teams who care how they sound</h2>
         </header>
-        <div class="sample-grid animate-up animate-delay-1">
-          <article class="sample-card card-surface">
-            <span class="sample-badge">Commercial</span>
-            <h3 class="sample-title">Riverwood Organics — Spring launch</h3>
-            <p class="sample-desc">Bright retail read with grounded authority; emphasizes sustainability without sounding preachy.</p>
-            <div class="sample-footer">
-              <span class="sample-duration"><i class="fa-regular fa-clock" aria-hidden="true"></i> 0:32</span>
-              <button type="button" class="sample-play" aria-label="Play Riverwood demo">
-                <i class="fa-solid fa-play" aria-hidden="true"></i>
-              </button>
-            </div>
-          </article>
-          <article class="sample-card card-surface">
-            <span class="sample-badge">Documentary</span>
-            <h3 class="sample-title">Atlas of Tides — Episode 4</h3>
-            <p class="sample-desc">Measured narration with cinematic pauses; supports long-form visuals and subtle music beds.</p>
-            <div class="sample-footer">
-              <span class="sample-duration"><i class="fa-regular fa-clock" aria-hidden="true"></i> 1:05</span>
-              <button type="button" class="sample-play" aria-label="Play Atlas of Tides demo">
-                <i class="fa-solid fa-play" aria-hidden="true"></i>
-              </button>
-            </div>
-          </article>
-          <article class="sample-card card-surface">
-            <span class="sample-badge">E-Learning</span>
-            <h3 class="sample-title">MedPath — Pharmacology primer</h3>
-            <p class="sample-desc">Clear articulation on complex terminology; friendly coach tone to keep learners engaged.</p>
-            <div class="sample-footer">
-              <span class="sample-duration"><i class="fa-regular fa-clock" aria-hidden="true"></i> 0:48</span>
-              <button type="button" class="sample-play" aria-label="Play MedPath demo">
-                <i class="fa-solid fa-play" aria-hidden="true"></i>
-              </button>
-            </div>
-          </article>
-          <article class="sample-card card-surface">
-            <span class="sample-badge">Corporate</span>
-            <h3 class="sample-title">Nimbus Cloud — Investor day</h3>
-            <p class="sample-desc">Confident, composed read for stakeholder comms; emphasizes metrics without sounding stiff.</p>
-            <div class="sample-footer">
-              <span class="sample-duration"><i class="fa-regular fa-clock" aria-hidden="true"></i> 0:41</span>
-              <button type="button" class="sample-play" aria-label="Play Nimbus demo">
-                <i class="fa-solid fa-play" aria-hidden="true"></i>
-              </button>
-            </div>
-          </article>
-          <article class="sample-card card-surface">
-            <span class="sample-badge">Audiobook</span>
-            <h3 class="sample-title">The Lantern House — Fiction sample</h3>
-            <p class="sample-desc">Intimate third-person narration with distinct character beats; pacing built for headphone listening.</p>
-            <div class="sample-footer">
-              <span class="sample-duration"><i class="fa-regular fa-clock" aria-hidden="true"></i> 2:10</span>
-              <button type="button" class="sample-play" aria-label="Play audiobook demo">
-                <i class="fa-solid fa-play" aria-hidden="true"></i>
-              </button>
-            </div>
-          </article>
-          <article class="sample-card card-surface">
-            <span class="sample-badge">IVR</span>
-            <h3 class="sample-title">Cedarline Bank — Phone system</h3>
-            <p class="sample-desc">Crisp prompts with welcoming inflection; optimized for narrowband telephony intelligibility.</p>
-            <div class="sample-footer">
-              <span class="sample-duration"><i class="fa-regular fa-clock" aria-hidden="true"></i> 0:36</span>
-              <button type="button" class="sample-play" aria-label="Play IVR demo">
-                <i class="fa-solid fa-play" aria-hidden="true"></i>
-              </button>
-            </div>
-          </article>
+        <div class="client-row animate-up animate-delay-1" role="list">
+          <div class="client-logo" role="listitem"><img src="../logo brands/brand 1.png" alt="Client brand"></div>
+          <div class="client-logo" role="listitem"><img src="../logo brands/brand 2.png" alt="Client brand"></div>
+          <div class="client-logo" role="listitem"><img src="../logo brands/brand 3.png" alt="Client brand"></div>
+          <div class="client-logo" role="listitem"><img src="../logo brands/brand 4.png" alt="Client brand"></div>
+          <div class="client-logo" role="listitem"><img src="../logo brands/brand 5.png" alt="Client brand"></div>
+          <div class="client-logo" role="listitem"><img src="../logo brands/brand 6.png" alt="Client brand"></div>
         </div>
       </div>
     </section>
@@ -204,10 +210,10 @@
           <figure class="testimonial-card card-surface">
             <div class="quote-icon" aria-hidden="true"><i class="fa-solid fa-quote-left"></i></div>
             <blockquote>
-              Amira nailed the tone on the first live session. Her reads feel “expensive”—clear diction, zero sibilance surprises, and she actually understands story beats, not just line delivery.
+              Amira nailed the tone on the first live session. Her reads feel "expensive"—clear diction, zero sibilance surprises, and she actually understands story beats, not just line delivery.
             </blockquote>
             <figcaption>
-              <span class="testimonial-name">Jordan Ellis</span>
+              <span class="testimonial-name">Youssef El-Masry</span>
               <span class="testimonial-role">Supervising Producer, LumaFrame Documentaries</span>
             </figcaption>
           </figure>
@@ -217,40 +223,20 @@
               We ship e-learning to four regions. Amira keeps medical terms accurate while still sounding approachable. Editors love her file naming and consistent levels—rare in VO world.
             </blockquote>
             <figcaption>
-              <span class="testimonial-name">Priya Menon</span>
+              <span class="testimonial-name">Nadia Khalil</span>
               <span class="testimonial-role">Creative Director, HelixLearn Global</span>
             </figcaption>
           </figure>
           <figure class="testimonial-card card-surface">
             <div class="quote-icon" aria-hidden="true"><i class="fa-solid fa-quote-left"></i></div>
             <blockquote>
-              Our client wanted a premium “nature-forward” retail spot. Amira leaned into warmth without sounding saccharine. The final mix needed almost no VO treatment—that’s the dream.
+              Our client wanted a premium "nature-forward" retail spot. Amira leaned into warmth without sounding saccharine. The final mix needed almost no VO treatment—that's the dream.
             </blockquote>
             <figcaption>
-              <span class="testimonial-name">Marcus Nguyen</span>
+              <span class="testimonial-name">Tarek Hassan</span>
               <span class="testimonial-role">Audio Lead, North &amp; Pine Agency</span>
             </figcaption>
           </figure>
-        </div>
-      </div>
-    </section>
-
-    <section id="clients" class="clients section section-alt">
-      <div class="container">
-        <header class="section-header animate-up">
-          <span class="section-eyebrow">Clients</span>
-          <h2 class="section-title">Trusted by teams who care how they sound</h2>
-          <p class="section-lead">
-            Logos shown as placeholders—swap with your slate of broadcast, publishing, and tech partners.
-          </p>
-        </header>
-        <div class="client-row animate-up animate-delay-1" role="list">
-          <div class="client-placeholder" role="listitem">Brand A</div>
-          <div class="client-placeholder" role="listitem">Brand B</div>
-          <div class="client-placeholder" role="listitem">Brand C</div>
-          <div class="client-placeholder" role="listitem">Brand D</div>
-          <div class="client-placeholder" role="listitem">Brand E</div>
-          <div class="client-placeholder" role="listitem">Brand F</div>
         </div>
       </div>
     </section>
@@ -259,7 +245,7 @@
       <div class="container">
         <header class="section-header animate-up">
           <span class="section-eyebrow">Contact</span>
-          <h2 class="section-title">Let’s craft the sound of your next project</h2>
+          <h2 class="section-title">Let's craft the sound of your next project</h2>
           <p class="section-lead">
             Share scripts, pickup lines, or rough cuts—I'll respond with availability, rates, and a timeline you can forward to production.
           </p>
@@ -289,7 +275,10 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <p class="footer-credit">
-        <a href="../../index.html">Built by VO Portfolios</a>
+        Designed &amp; Developed by <a href="https://malek-abdelrahman-hassan.github.io/" target="_blank" rel="noopener noreferrer">Malek Abdelrahman</a>
+      </p>
+      <p class="footer-templates">
+        Need a voice-over portfolio? <a href="https://voice-over-artist.github.io/templates/" target="_blank" rel="noopener noreferrer">Browse ready-made templates</a>
       </p>
       <p class="footer-copy">&copy; 2026 Amira Farouk. All rights reserved.</p>
     </div>
@@ -339,29 +328,45 @@
       window.addEventListener('scroll', onScroll, { passive: true });
       onScroll();
 
-      var playTimers = {};
-      document.querySelectorAll('.sample-play').forEach(function (btn, index) {
-        var icon = btn.querySelector('i');
+      var audio = document.getElementById('demoAudio');
+      var activeBtn = null;
+
+      document.querySelectorAll('.sample-play').forEach(function (btn) {
         btn.addEventListener('click', function () {
-          var id = 'p' + index;
-          if (playTimers[id]) {
-            window.clearTimeout(playTimers[id]);
-            playTimers[id] = null;
+          var icon = btn.querySelector('i');
+
+          if (activeBtn && activeBtn !== btn) {
+            var prevIcon = activeBtn.querySelector('i');
+            prevIcon.classList.remove('fa-pause');
+            prevIcon.classList.add('fa-play');
+            activeBtn.classList.remove('is-playing');
           }
-          btn.classList.add('is-playing');
-          if (icon) {
+
+          if (activeBtn === btn && !audio.paused) {
+            audio.pause();
+            icon.classList.remove('fa-pause');
+            icon.classList.add('fa-play');
+            btn.classList.remove('is-playing');
+            activeBtn = null;
+          } else {
+            audio.currentTime = 0;
+            audio.play();
             icon.classList.remove('fa-play');
             icon.classList.add('fa-pause');
+            btn.classList.add('is-playing');
+            activeBtn = btn;
           }
-          playTimers[id] = window.setTimeout(function () {
-            btn.classList.remove('is-playing');
-            if (icon) {
-              icon.classList.remove('fa-pause');
-              icon.classList.add('fa-play');
-            }
-            playTimers[id] = null;
-          }, 2800);
         });
+      });
+
+      audio.addEventListener('ended', function () {
+        if (activeBtn) {
+          var icon = activeBtn.querySelector('i');
+          icon.classList.remove('fa-pause');
+          icon.classList.add('fa-play');
+          activeBtn.classList.remove('is-playing');
+          activeBtn = null;
+        }
       });
     })();
   </script>
