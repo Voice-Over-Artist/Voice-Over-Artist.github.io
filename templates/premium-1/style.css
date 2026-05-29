@@ -42,6 +42,7 @@ body {
   color: var(--charcoal);
   background-color: var(--cream);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 body.nav-open {

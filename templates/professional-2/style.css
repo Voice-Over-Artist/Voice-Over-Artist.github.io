@@ -47,6 +47,7 @@ body {
   color: var(--text);
   background-color: var(--lavender-white);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 body.nav-open {

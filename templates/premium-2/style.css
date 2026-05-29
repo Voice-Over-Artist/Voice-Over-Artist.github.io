@@ -43,6 +43,7 @@ body {
   color: var(--text);
   background-color: var(--canvas);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 body.nav-open {
