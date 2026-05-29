@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sarah Mitchell — Voice Over Artist</title>
-  <meta name="description" content="Warm, versatile voice-over for commercials, narration, e-learning, and corporate projects.">
+  <title>Sarah Amr — Voice Over Artist</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎙️</text></svg>">
+  <meta name="description" content="Sarah Amr — Professional voice-over artist for commercials, narration, e-learning, and corporate projects.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
@@ -14,7 +15,7 @@
 <body>
   <header class="site-header" id="site-header">
     <div class="header-inner container">
-      <a href="#hero" class="logo">Sarah Mitchell</a>
+      <a href="#hero" class="logo">Sarah Amr</a>
       <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
         <span class="nav-toggle-bar"></span>
         <span class="nav-toggle-bar"></span>
@@ -23,8 +24,8 @@
       <nav id="primary-nav" class="primary-nav" aria-label="Primary">
         <ul class="nav-list">
           <li><a href="#hero">Home</a></li>
-          <li><a href="#about">About</a></li>
           <li><a href="#samples">Samples</a></li>
+          <li><a href="#about">About</a></li>
           <li><a href="#contact" class="nav-cta">Contact</a></li>
         </ul>
       </nav>
@@ -33,13 +34,15 @@
 
   <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
 
+  <audio id="demoAudio" src="../voice sample.mp3" preload="auto"></audio>
+
   <main>
     <section id="hero" class="hero">
       <div class="hero-bg"></div>
       <div class="container hero-grid">
         <div class="hero-content animate-in">
-          <p class="hero-greeting">Hello, I’m</p>
-          <h1 class="hero-name">Sarah Mitchell</h1>
+          <p class="hero-greeting">Hello, I'm</p>
+          <h1 class="hero-name">Sarah Amr</h1>
           <p class="hero-title">Voice Over Artist</p>
           <p class="hero-subtitle">
             Warm, articulate reads for brands that care how they sound—commercial spots,
@@ -50,56 +53,8 @@
             <a href="#contact" class="btn btn-outline">Get in Touch</a>
           </div>
         </div>
-        <div class="hero-visual animate-in animate-delay-1" aria-hidden="true">
-          <div class="hero-card">
-            <div class="waveform" role="presentation">
-              <span></span><span></span><span></span><span></span><span></span>
-              <span></span><span></span><span></span><span></span><span></span>
-              <span></span><span></span>
-            </div>
-            <div class="hero-mic-wrap">
-              <i class="fa-solid fa-microphone-lines hero-mic-icon"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="about" class="about section">
-      <div class="container">
-        <header class="section-header animate-in">
-          <span class="section-eyebrow">About</span>
-          <h2 class="section-title">Story-driven voice with studio polish</h2>
-          <p class="section-lead">
-            From intimate narration to energetic retail reads, I help projects sound credible,
-            inviting, and unmistakably human.
-          </p>
-        </header>
-        <div class="about-card animate-in animate-delay-1">
-          <div class="about-avatar" aria-hidden="true">
-            <span class="about-avatar-initials">SM</span>
-          </div>
-          <div class="about-body">
-            <h3 class="about-name">Sarah Mitchell</h3>
-            <p class="about-role">Commercial · Narration · E-Learning · Corporate</p>
-            <p class="about-text">
-              I’m a full-time voice actor with a broadcast-ready home studio, tuned for crisp dialogue
-              and natural pacing. Clients rely on me for national-spot energy, documentary warmth,
-              and clear instructional delivery that keeps learners engaged without sounding robotic.
-            </p>
-            <p class="about-text">
-              Recent work spans automotive retail, wellness podcasts, SaaS explainers, museum tours,
-              and medical e-learning—with direction handled remotely via SourceConnect, Zoom, or phone patch.
-            </p>
-            <ul class="about-tags">
-              <li>Commercial</li>
-              <li>Narration</li>
-              <li>E-Learning</li>
-              <li>Corporate &amp; Explainers</li>
-              <li>Medical (general)</li>
-              <li>Character &amp; Promo</li>
-            </ul>
-          </div>
+        <div class="hero-visual animate-in animate-delay-1">
+          <img class="hero-image" src="Sarah Amr at Studio.png" alt="Sarah Amr recording in the studio">
         </div>
       </div>
     </section>
@@ -117,51 +72,92 @@
           <article class="sample-card animate-in">
             <span class="sample-category">Commercial</span>
             <h3 class="sample-title">Summit Outdoor — Spring Campaign</h3>
-            <p class="sample-meta"><span class="sample-duration">0:32</span> · Retail energy</p>
-            <button type="button" class="sample-play" aria-label="Play demo (placeholder): Summit Outdoor">
+            <p class="sample-meta"><span class="sample-duration">0:32</span></p>
+            <button type="button" class="sample-play" aria-label="Play demo: Summit Outdoor">
               <i class="fa-solid fa-play" aria-hidden="true"></i>
             </button>
           </article>
           <article class="sample-card animate-in animate-delay-1">
             <span class="sample-category">Narration</span>
             <h3 class="sample-title">Heartland Routes — Doc Series Teaser</h3>
-            <p class="sample-meta"><span class="sample-duration">1:04</span> · Warm documentary</p>
-            <button type="button" class="sample-play" aria-label="Play demo (placeholder): Heartland Routes">
+            <p class="sample-meta"><span class="sample-duration">1:04</span></p>
+            <button type="button" class="sample-play" aria-label="Play demo: Heartland Routes">
               <i class="fa-solid fa-play" aria-hidden="true"></i>
             </button>
           </article>
           <article class="sample-card animate-in animate-delay-2">
             <span class="sample-category">E-Learning</span>
             <h3 class="sample-title">MedBridge — Patient Safety Module 3</h3>
-            <p class="sample-meta"><span class="sample-duration">0:58</span> · Instructional clarity</p>
-            <button type="button" class="sample-play" aria-label="Play demo (placeholder): MedBridge">
+            <p class="sample-meta"><span class="sample-duration">0:58</span></p>
+            <button type="button" class="sample-play" aria-label="Play demo: MedBridge">
               <i class="fa-solid fa-play" aria-hidden="true"></i>
             </button>
           </article>
           <article class="sample-card animate-in animate-delay-3">
             <span class="sample-category">Corporate</span>
             <h3 class="sample-title">Northfield Analytics — Product Overview</h3>
-            <p class="sample-meta"><span class="sample-duration">0:45</span> · Tech explainer</p>
-            <button type="button" class="sample-play" aria-label="Play demo (placeholder): Northfield Analytics">
+            <p class="sample-meta"><span class="sample-duration">0:45</span></p>
+            <button type="button" class="sample-play" aria-label="Play demo: Northfield Analytics">
               <i class="fa-solid fa-play" aria-hidden="true"></i>
             </button>
           </article>
           <article class="sample-card animate-in">
             <span class="sample-category">Commercial</span>
             <h3 class="sample-title">Olive &amp; Ember — Artisan Candle Spot</h3>
-            <p class="sample-meta"><span class="sample-duration">0:27</span> · Lifestyle intimate</p>
-            <button type="button" class="sample-play" aria-label="Play demo (placeholder): Olive and Ember">
+            <p class="sample-meta"><span class="sample-duration">0:27</span></p>
+            <button type="button" class="sample-play" aria-label="Play demo: Olive and Ember">
               <i class="fa-solid fa-play" aria-hidden="true"></i>
             </button>
           </article>
           <article class="sample-card animate-in animate-delay-1">
             <span class="sample-category">Narration</span>
             <h3 class="sample-title">City Archives — Oral History Exhibit</h3>
-            <p class="sample-meta"><span class="sample-duration">1:12</span> · Museum guide</p>
-            <button type="button" class="sample-play" aria-label="Play demo (placeholder): City Archives">
+            <p class="sample-meta"><span class="sample-duration">1:12</span></p>
+            <button type="button" class="sample-play" aria-label="Play demo: City Archives">
               <i class="fa-solid fa-play" aria-hidden="true"></i>
             </button>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about section">
+      <div class="container">
+        <header class="section-header animate-in">
+          <span class="section-eyebrow">About</span>
+          <h2 class="section-title">Professional voice, studio-grade delivery</h2>
+          <p class="section-lead">
+            Bringing scripts to life with clarity, warmth, and precision—every single take.
+          </p>
+        </header>
+        <div class="about-card animate-in animate-delay-1">
+          <div class="about-avatar">
+            <img src="Salma Amr Profile.png" alt="Sarah Amr — Voice Over Artist">
+          </div>
+          <div class="about-body">
+            <h3 class="about-name">Sarah Amr</h3>
+            <p class="about-role">Commercial · Narration · E-Learning · Corporate</p>
+            <p class="about-text">
+              Sarah Amr is a professional voice-over artist with a fully equipped home studio
+              optimized for broadcast-quality recording. She delivers polished, natural reads
+              across a wide range of genres—from high-energy commercial spots to calm,
+              authoritative narration and engaging e-learning content.
+            </p>
+            <p class="about-text">
+              With a keen ear for tone and pacing, Sarah collaborates closely with clients
+              to capture the exact feel each project demands. Whether it's a brand campaign,
+              corporate explainer, documentary, or training module, every session is handled
+              with professionalism, quick turnaround, and meticulous attention to detail.
+            </p>
+            <ul class="about-tags">
+              <li>Commercial</li>
+              <li>Narration</li>
+              <li>E-Learning</li>
+              <li>Corporate &amp; Explainers</li>
+              <li>Medical (general)</li>
+              <li>Character &amp; Promo</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -170,9 +166,9 @@
       <div class="container">
         <header class="section-header animate-in">
           <span class="section-eyebrow">Contact</span>
-          <h2 class="section-title">Let’s book your session</h2>
+          <h2 class="section-title">Let's book your session</h2>
           <p class="section-lead">
-            Share your script, timeline, and tone references—I’ll reply with availability and a tailored quote.
+            Share your script, timeline, and tone references—I'll reply with availability and a tailored quote.
           </p>
         </header>
         <div class="contact-actions animate-in animate-delay-1">
@@ -198,9 +194,12 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <p class="footer-credit">
-        <a href="../../index.html">Built by VO Portfolios</a>
+        Designed &amp; Developed by <a href="https://malek-abdelrahman-hassan.github.io/" target="_blank" rel="noopener noreferrer">Malek Abdelrahman</a>
       </p>
-      <p class="footer-copy">&copy; 2026 Sarah Mitchell. All rights reserved.</p>
+      <p class="footer-templates">
+        Need a voice-over portfolio? <a href="https://voice-over-artist.github.io/templates/" target="_blank" rel="noopener noreferrer">Browse ready-made templates</a>
+      </p>
+      <p class="footer-copy">&copy; 2026 Sarah Amr. All rights reserved.</p>
     </div>
   </footer>
 
@@ -247,6 +246,43 @@
 
       window.addEventListener('scroll', onScroll, { passive: true });
       onScroll();
+
+      var audio = document.getElementById('demoAudio');
+      var activeBtn = null;
+
+      document.querySelectorAll('.sample-play').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var icon = btn.querySelector('i');
+
+          if (activeBtn && activeBtn !== btn) {
+            var prevIcon = activeBtn.querySelector('i');
+            prevIcon.classList.remove('fa-pause');
+            prevIcon.classList.add('fa-play');
+          }
+
+          if (activeBtn === btn && !audio.paused) {
+            audio.pause();
+            icon.classList.remove('fa-pause');
+            icon.classList.add('fa-play');
+            activeBtn = null;
+          } else {
+            audio.currentTime = 0;
+            audio.play();
+            icon.classList.remove('fa-play');
+            icon.classList.add('fa-pause');
+            activeBtn = btn;
+          }
+        });
+      });
+
+      audio.addEventListener('ended', function () {
+        if (activeBtn) {
+          var icon = activeBtn.querySelector('i');
+          icon.classList.remove('fa-pause');
+          icon.classList.add('fa-play');
+          activeBtn = null;
+        }
+      });
     })();
   </script>
 </body>
