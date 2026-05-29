@@ -332,7 +332,7 @@
 
     /* Countdown timer — 7 days from first visit */
     (function () {
-        var STORAGE_KEY = 'voPromoEnd';
+        var STORAGE_KEY = 'voPromoEnd2';
         var endTime;
         try {
             var stored = window.localStorage ? window.localStorage.getItem(STORAGE_KEY) : null;

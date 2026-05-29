@@ -176,7 +176,13 @@
                             ar: 'أسئلة؟ تواصل معي في أي وقت — يسعدني مساعدتك!' },
 
         footer_credit:    { en: 'Malek Abdelrahman. Engineered with precision.',
-                            ar: 'مالك عبد الرحمن. صُمم بدقة.' }
+                            ar: 'مالك عبد الرحمن. صُمم بدقة.' },
+
+        promo_text:   { en: 'Limited-time offer — Save up to 35%!', ar: 'عرض لفترة محدودة — وفّر حتى ٣٥٪!' },
+        timer_days:   { en: 'Days',  ar: 'يوم' },
+        timer_hours:  { en: 'Hrs',   ar: 'ساعة' },
+        timer_mins:   { en: 'Min',   ar: 'دقيقة' },
+        timer_secs:   { en: 'Sec',   ar: 'ثانية' }
     };
 
     var currentLang = 'en';
@@ -346,4 +352,50 @@
             }
         });
     });
+
+    /* Promo banner countdown timer */
+    (function () {
+        var STORAGE_KEY = 'voMainPromoEnd';
+        var WEEK_MS = 7 * 24 * 60 * 60 * 1000;
+        var banner = document.getElementById('promoBanner');
+        if (!banner) return;
+
+        var stored = localStorage.getItem(STORAGE_KEY);
+        var endTime;
+        if (stored) {
+            endTime = Number(stored);
+        } else {
+            endTime = Date.now() + WEEK_MS;
+            localStorage.setItem(STORAGE_KEY, endTime);
+        }
+
+        var daysEl = document.getElementById('timerDays');
+        var hoursEl = document.getElementById('timerHours');
+        var minsEl = document.getElementById('timerMins');
+        var secsEl = document.getElementById('timerSecs');
+
+        function pad(n) { return n < 10 ? '0' + n : String(n); }
+
+        function tick() {
+            var diff = endTime - Date.now();
+            if (diff <= 0) {
+                daysEl.textContent = '00';
+                hoursEl.textContent = '00';
+                minsEl.textContent = '00';
+                secsEl.textContent = '00';
+                return;
+            }
+            var d = Math.floor(diff / 86400000);
+            var h = Math.floor((diff % 86400000) / 3600000);
+            var m = Math.floor((diff % 3600000) / 60000);
+            var s = Math.floor((diff % 60000) / 1000);
+            daysEl.textContent = pad(d);
+            hoursEl.textContent = pad(h);
+            minsEl.textContent = pad(m);
+            secsEl.textContent = pad(s);
+        }
+
+        tick();
+        setInterval(tick, 1000);
+    })();
 })();
