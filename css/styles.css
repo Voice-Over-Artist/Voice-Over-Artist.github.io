@@ -34,7 +34,7 @@
     --transition: .3s ease;
     --container: 1140px;
     --nav-h: 72px;
-    --promo-h: 44px;
+    --promo-h: 54px;
 }
 
 /* ---------- Reset ---------- */
@@ -147,30 +147,32 @@ img { max-width: 100%; display: block; }
 .promo-banner {
     position: fixed;
     top: 0; left: 0; right: 0;
-    height: var(--promo-h);
+    min-height: var(--promo-h);
     background: linear-gradient(135deg, #c96b5e 0%, #b55d51 50%, #a04e43 100%);
     color: #fff;
     z-index: 1002;
     display: flex;
     align-items: center;
+    padding: 8px 0;
 }
 .promo-inner {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 24px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 .promo-text {
     display: flex;
     align-items: center;
     gap: 8px;
     font-weight: 700;
-    font-size: .92rem;
+    font-size: 1rem;
     letter-spacing: .02em;
+    white-space: nowrap;
 }
 .promo-text i {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     animation: fire-pulse 1.5s ease-in-out infinite;
 }
 @keyframes fire-pulse {
@@ -186,17 +188,17 @@ img { max-width: 100%; display: block; }
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 42px;
+    min-width: 44px;
 }
 .timer-num {
     background: rgba(255,255,255,.2);
     backdrop-filter: blur(4px);
     border-radius: 8px;
-    padding: 4px 8px;
-    font-size: 1.05rem;
+    padding: 5px 10px;
+    font-size: 1.1rem;
     font-weight: 800;
     font-variant-numeric: tabular-nums;
-    min-width: 36px;
+    min-width: 38px;
     text-align: center;
     line-height: 1.3;
 }
@@ -216,13 +218,15 @@ img { max-width: 100%; display: block; }
 }
 
 @media (max-width: 600px) {
-    .promo-inner { gap: 12px; }
-    .promo-text { font-size: .78rem; }
-    .promo-text i { font-size: .9rem; }
-    .timer-num { font-size: .88rem; padding: 3px 6px; min-width: 30px; }
-    .timer-block { min-width: 34px; }
-    .timer-label { font-size: .52rem; }
-    .timer-sep { font-size: .9rem; margin-bottom: 12px; }
+    :root { --promo-h: 90px; }
+    .promo-banner { padding: 6px 0; }
+    .promo-inner { gap: 8px; flex-wrap: wrap; justify-content: center; }
+    .promo-text { font-size: .82rem; white-space: normal; text-align: center; justify-content: center; width: 100%; }
+    .promo-timer { gap: 4px; }
+    .timer-num { font-size: .85rem; padding: 3px 6px; min-width: 28px; }
+    .timer-block { min-width: 32px; }
+    .timer-label { font-size: .5rem; }
+    .timer-sep { font-size: .85rem; margin-bottom: 10px; }
 }
 
 /* ========================================
