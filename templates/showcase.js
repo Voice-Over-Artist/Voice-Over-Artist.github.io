@@ -52,7 +52,7 @@
         sec_clients: { en: 'Clients', ar: 'العملاء' },
         sec_showreel: { en: 'Video Showreel', ar: 'فيديو شو ريل' },
         sec_services: { en: 'Services', ar: 'الخدمات' },
-        sec_portfolio: { en: 'Portfolio', ar: 'الأعمال' },
+        sec_portfolio: { en: 'Studio', ar: 'الاستوديو' },
 
         badge_standard: { en: 'Starter', ar: 'البداية' },
         badge_professional: { en: 'Showcase', ar: 'عرض الأعمال' },
