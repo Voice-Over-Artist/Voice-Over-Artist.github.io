@@ -354,65 +354,16 @@ a:hover {
 
 .hero-visual {
   display: flex;
-  justify-content: stretch;
+  justify-content: center;
 }
 
-.hero-wave-panel {
+.hero-image {
   width: 100%;
+  max-width: 440px;
   border-radius: var(--radius-lg);
   border: 1px solid rgba(74, 144, 217, 0.22);
-  background: linear-gradient(165deg, var(--surface), var(--mist));
-  padding: 1.35rem 1.25rem 1rem;
   box-shadow: var(--shadow-md);
-}
-
-.hero-wave-svg {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: calc(var(--radius-lg) - 6px);
-}
-
-.hero-wave-path {
-  stroke-dasharray: 620;
-  stroke-dashoffset: 620;
-  animation: wave-draw 2.4s ease forwards;
-}
-
-.hero-wave-path-shadow {
-  animation-delay: 0.35s;
-}
-
-@keyframes wave-draw {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-wave-path,
-  .hero-wave-path-shadow {
-    animation: none;
-    stroke-dashoffset: 0;
-  }
-}
-
-.hero-wave-caption {
-  margin-top: 0.85rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--text-muted);
-}
-
-.hero-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--sky), var(--navy));
-  box-shadow: 0 0 0 4px rgba(74, 144, 217, 0.18);
+  object-fit: cover;
 }
 
 /* ---------- Sections ---------- */
@@ -482,18 +433,16 @@ a:hover {
   height: 112px;
   border-radius: 50%;
   margin-inline: auto;
-  background: radial-gradient(circle at 30% 28%, rgba(74, 144, 217, 0.35), transparent 55%), var(--mist);
   border: 3px solid var(--surface);
   box-shadow: 0 10px 28px rgba(26, 58, 92, 0.12);
-  display: grid;
-  place-items: center;
+  overflow: hidden;
+  flex-shrink: 0;
 }
 
-.about-avatar-initials {
-  font-family: var(--font-display);
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--navy);
+.about-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .about-name {
@@ -798,6 +747,22 @@ a:hover {
   color: var(--sky);
 }
 
+.footer-templates {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.footer-templates a {
+  font-weight: 600;
+  color: var(--sky);
+  text-decoration: none;
+}
+
+.footer-templates a:hover {
+  text-decoration: underline;
+}
+
 .footer-copy {
   margin: 0;
   font-size: 0.8rem;
@@ -859,8 +824,7 @@ a:hover {
     justify-content: flex-end;
   }
 
-  .hero-wave-panel {
-    max-width: 440px;
+  .hero-image {
     margin-inline-start: auto;
   }
 
@@ -899,9 +863,8 @@ a:hover {
     gap: 3.5rem;
   }
 
-  .hero-wave-panel {
+  .hero-image {
     max-width: none;
-    padding: 1.55rem 1.45rem 1.15rem;
   }
 
   .samples-board {
