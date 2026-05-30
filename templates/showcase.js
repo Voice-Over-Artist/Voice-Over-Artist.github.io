@@ -332,18 +332,18 @@
 
     /* Countdown timer — 7 days from first visit */
     (function () {
-        var STORAGE_KEY = 'voPromoEnd2';
+        var STORAGE_KEY = 'voPromoEnd3';
         var endTime;
         try {
             var stored = window.localStorage ? window.localStorage.getItem(STORAGE_KEY) : null;
             if (stored) {
                 endTime = parseInt(stored, 10);
             } else {
-                endTime = Date.now() + 7 * 24 * 60 * 60 * 1000;
+                endTime = Date.now() + (1 * 24 + 2) * 60 * 60 * 1000;
                 if (window.localStorage) window.localStorage.setItem(STORAGE_KEY, String(endTime));
             }
         } catch (e) {
-            endTime = Date.now() + 7 * 24 * 60 * 60 * 1000;
+            endTime = Date.now() + (1 * 24 + 2) * 60 * 60 * 1000;
         }
 
         var daysEl = document.getElementById('timerDays');

@@ -355,8 +355,8 @@
 
     /* Promo banner countdown timer */
     (function () {
-        var STORAGE_KEY = 'voMainPromoEnd';
-        var WEEK_MS = 7 * 24 * 60 * 60 * 1000;
+        var STORAGE_KEY = 'voMainPromoEnd2';
+        var WEEK_MS = (1 * 24 + 2) * 60 * 60 * 1000;
         var banner = document.getElementById('promoBanner');
         if (!banner) return;
 
